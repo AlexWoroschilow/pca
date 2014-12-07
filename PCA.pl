@@ -1,7 +1,6 @@
 #!/usr/bin/perl
 
 use Salami::PCA;
-use Salami::Compare;
 
 my @raw1 = (
   [ 198, 92, -1, 48, 48, 45, 420, 115, -1, 98, -1, 100 ],
