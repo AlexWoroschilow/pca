@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 use Exporter qw(import);
-use Similarity::Builder 'to_xml';
+use Similarity::Builder 'all_to_all', 'to_xml';
 
 sub mymain () {
 
@@ -25,7 +25,6 @@ sub mymain () {
     @proteins_ref = ( '5ptiA', '4nkpA', '3fpvB', '4mn7A', '9ptiA' );
     @proteins_test = ( '5ptiA', '2qybA', '3oovB' );
   }
-  
-  print to_xml( @proteins_ref, @proteins_test );
+  print to_xml( all_to_all( @proteins_ref, @proteins_test ) );
 }
 exit( mymain() );
