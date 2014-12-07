@@ -64,7 +64,7 @@ sub mymain () {
   my $result = {};
   my ( $m, $n ) = $matrixT->size;
   foreach my $i ( 0 ... ( $m - 1 ) ) {
-    $result->{"test$i"} = {
+    $result->{"@proteins_ref[$i]"} = {
       "x" => $matrixT->[$i]->[0],
       "y" => $matrixT->[$i]->[1],
       "z" => $matrixT->[$i]->[2],
