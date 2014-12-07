@@ -1,3 +1,5 @@
+package Salami::Compare;
+
 use strict;
 use warnings;
 use POSIX qw(EXIT_SUCCESS EXIT_FAILURE);
