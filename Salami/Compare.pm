@@ -123,39 +123,54 @@ sub usage () {
   print STDERR "$0: ref1,ref2,..  prot1,prot2,prot3\n";
 }
 
-# ----------------------- mymain  -----------------------------------
+#
+# Method to compare Proteins
+#
 sub proteins (@) {
   my ( $string1, $string2 ) = @_;
 
   use Getopt::Std;
 
   my (%opts);
-  my $testing   = 1;
-  my @ref_prot  = split( ',', $string1 );
-  my @test_prot = split( ',', $string2 );
 
+  # Get ref-Proteins
+  # from a first string
+  # like a "4mn7A,3oovB,5ptiA"
+  my @proteins_ref = split( ',', $string1 );
+
+  # get test-Proteins
+  # from a second string
+  # like a "4mn7A,3oovB,5ptiA"
+  my @proteins_test = split( ',', $string2 );
+
+  # Replace 1 to 0
+  # for production use
+  my $testing = 1;
+
+  # Replace found proteins
+  # with a test proteins
   if ($testing) {
-    @ref_prot = ( '5ptiA', '4nkpA', '3fpvB', '4mn7A', '9ptiA' );
-    @test_prot = ( '5ptiA', '2qybA', '3oovB' );
+    @proteins_ref = ( '5ptiA', '4nkpA', '3fpvB', '4mn7A', '9ptiA' );
+    @proteins_test = ( '5ptiA', '2qybA', '3oovB' );
   }
 
   set_params();
   my ( @ref_c, @ref_v, @test_c, @test_v );
 
-  #   Get all the vector files and coordinates read up.
-  for ( my $i = 0 ; $i < @ref_prot ; $i++ ) {
-    $ref_c[$i] = coord_read("$OUTPUT_BIN_DIR/$ref_prot[$i].bin");
-    $ref_v[$i] = prob_vec_read("$PVEC_STRCT_DIR/$ref_prot[$i].vec");
+  # Get all the vector files and coordinates read up.
+  for ( my $i = 0 ; $i < @proteins_ref ; $i++ ) {
+    $ref_c[$i] = coord_read("$OUTPUT_BIN_DIR/$proteins_ref[$i].bin");
+    $ref_v[$i] = prob_vec_read("$PVEC_STRCT_DIR/$proteins_ref[$i].vec");
   }
-  for ( my $i = 0 ; $i < @test_prot ; $i++ ) {
+  for ( my $i = 0 ; $i < @proteins_test ; $i++ ) {
     $test_c[$i] = coord_read("$OUTPUT_BIN_DIR/$test_prot[$i].bin");
     $test_v[$i] = prob_vec_read("$PVEC_STRCT_DIR/$test_prot[$i].vec");
   }
 
   #   We now have all the coords and vectors that we will need.
   my @q_scr;
-  for ( my $i = 0 ; $i < @ref_prot ; $i++ ) {
-    for ( my $j = 0 ; $j < @test_prot ; $j++ ) {
+  for ( my $i = 0 ; $i < @proteins_ref ; $i++ ) {
+    for ( my $j = 0 ; $j < @proteins_test ; $j++ ) {
       if (
         !(
           $q_scr[$i][$j] =
@@ -174,13 +189,13 @@ sub proteins (@) {
     my $fmt_s = ' %6s';
     my $fmt_q = ' %6.2f';
     printf( $fmt_s, ' ' );
-    for ( my $i = 0 ; $i < @test_prot ; $i++ ) {
+    for ( my $i = 0 ; $i < @proteins_test ; $i++ ) {
       printf( $fmt_s, coord_name( $test_c[$i] ) );
     }
     print "\n";
-    for ( my $i = 0 ; $i < @ref_prot ; $i++ ) {
+    for ( my $i = 0 ; $i < @proteins_ref ; $i++ ) {
       printf( $fmt_s, coord_name( $ref_c[$i] ) );
-      for ( my $j = 0 ; $j < @test_prot ; $j++ ) {
+      for ( my $j = 0 ; $j < @proteins_test ; $j++ ) {
         printf( $fmt_q, $q_scr[$i][$j] );
       }
       print "\n";
