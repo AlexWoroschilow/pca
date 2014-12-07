@@ -1,9 +1,15 @@
 #!/usr/bin/perl
+use Salami::PCA;
 use Salami::Compare;
 
 use POSIX qw(EXIT_SUCCESS EXIT_FAILURE);
 
 sub mymain () {
+
+  # Replace 1 to 0
+  # for production use
+  my $testing = 1;
+
   use Getopt::Std;
 
   # Get ref-Proteins
@@ -16,10 +22,6 @@ sub mymain () {
   # like a "4mn7A,3oovB,5ptiA"
   my @proteins_test = split( ',', $ARGV[1] );
 
-  # Replace 1 to 0
-  # for production use
-  my $testing = 1;
-
   # Replace found proteins
   # with a test proteins
   if ($testing) {
@@ -29,7 +31,7 @@ sub mymain () {
 
   # compare proteins all to all
   # get a result as a multidimensional array
-  my (@result) = Salami::Compare::proteins( @proteins_ref, @proteins_test );
+  my (@matrix) = Salami::Compare::proteins( @proteins_ref, @proteins_test );
 
   my $fmt_s = ' %6s';
   my $fmt_q = ' %6.2f';
@@ -40,14 +42,25 @@ sub mymain () {
   }
   print("\n");
 
-  foreach my $i ( keys @result ) {
-    my @row = @{ $result[$i] };
+  foreach my $i ( keys @matrix ) {
+    my @row = @{ $matrix[$i] };
     printf( $fmt_s, @proteins_ref[$i] );
     foreach my $j ( keys @row ) {
-      printf( $fmt_q, $result[$i][$j] );
+      printf( $fmt_q, $matrix[$i][$j] );
     }
     print("\n");
   }
+
+  # Apply PCA to given matrix
+  ( my $raw, my $matrix, my $matrixP, my $matrixT ) =
+    Salami::PCA::normalized(@matrix);
+
+  $raw->print("-->Raw:\n");
+  $matrix->print("-->Rest:\n");
+  $matrixP->print("Matrix P: \n");
+  $matrixT->print("Matrix T: \n");
+
+  print("--> done");
 
   #    for ( my $i = 0 ; $i < @proteins_test ; $i++ ) {
   #      printf( $fmt_s, Salami::Compare::name( $test_c[$i] ) );
