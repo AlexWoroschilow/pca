@@ -125,15 +125,14 @@ sub usage () {
 sub proteins (@) {
   my ( $string1, $string2 ) = @_;
 
-  my @ref_prot  = split( ',', $string1 );
-  my @test_prot = split( ',', $string2 );
   use Getopt::Std;
 
   my (%opts);
-  my ( @ref_prot, @test_prot );
-  my $just_testing = 1;
-  
-  if ($just_testing) {
+  my $testing   = 1;
+  my @ref_prot  = split( ',', $string1 );
+  my @test_prot = split( ',', $string2 );
+
+  if ($testing) {
     @ref_prot = ( '5ptiA', '4nkpA', '3fpvB', '4mn7A', '9ptiA' );
     @test_prot = ( '5ptiA', '2qybA', '3oovB' );
   }
