@@ -163,8 +163,8 @@ sub proteins (@) {
     $ref_v[$i] = prob_vec_read("$PVEC_STRCT_DIR/$proteins_ref[$i].vec");
   }
   for ( my $i = 0 ; $i < @proteins_test ; $i++ ) {
-    $test_c[$i] = coord_read("$OUTPUT_BIN_DIR/$test_prot[$i].bin");
-    $test_v[$i] = prob_vec_read("$PVEC_STRCT_DIR/$test_prot[$i].vec");
+    $test_c[$i] = coord_read("$OUTPUT_BIN_DIR/$proteins_test[$i].bin");
+    $test_v[$i] = prob_vec_read("$PVEC_STRCT_DIR/$proteins_test[$i].vec");
   }
 
   #   We now have all the coords and vectors that we will need.
