@@ -1,5 +1,6 @@
 use strict;
 use warnings;
+use POSIX qw(EXIT_SUCCESS EXIT_FAILURE);
 
 use FindBin;
 use lib "$FindBin::Bin/salamiServer";
