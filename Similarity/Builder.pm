@@ -18,7 +18,11 @@ sub all_to_all (\@\@) {
 
   # Apply PCA to given matrix
   # return all matrixes (raw, rest, P, T)
-  ( my $raw, my $matrix, my $P, my $T ) = Similarity::Pca::normalized(@matrix);
+  ( my $raw, my $rest, my $P, my $T ) = Similarity::Pca::normalized(@matrix);
+
+  $raw->print("Matrix raw:\n");
+  $rest->print("Matrix rest:\n");
+  $T->print("Matrix T:\n");
 
   # Build a data structure
   # to push into templater
