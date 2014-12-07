@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 
 use Salami::PCA;
+use Salami::Compare;
 
 my @raw1 = (
   [ 198, 92, -1, 48, 48, 45, 420, 115, -1, 98, -1, 100 ],
@@ -59,7 +60,7 @@ my @raw2 = (
   [ 0.3234, 0.3216, 0.3247, 0.3225, 0.3257 ],
 );
 ( my $raw, my $matrix, my $matrixP, my $matrixT ) =
-  Salami::PCA::normalized(@raw1);
+  Salami::PCA::normalized(@raw2);
 
 $raw->print("-->Raw:\n");
 $matrix->print("-->Rest:\n");

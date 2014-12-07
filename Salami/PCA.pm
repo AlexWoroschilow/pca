@@ -29,10 +29,10 @@ sub pca ($) {
     #P1 = rand(X_c, 1);
     #T1 = X * P1;
     #d0 = T1'*T1;
-    my $t  = $matrix->slice( int( rand($pc) ) );
+    my $t  = $matrix->slice($i);
     my $P1 = $t->clone;
     my $T1 = $matrix->transpose->multiply($P1);
-    
+
     do {
 
       $d0 = $T1->transpose->multiply($T1);
