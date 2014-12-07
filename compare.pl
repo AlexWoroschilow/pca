@@ -3,7 +3,6 @@ use Salami::PCA;
 use Salami::Compare;
 use FindBin qw($Bin);
 use Text::Xslate;
-
 use POSIX qw(EXIT_SUCCESS EXIT_FAILURE);
 
 sub mymain () {
@@ -11,7 +10,6 @@ sub mymain () {
   # Replace 1 to 0
   # for production use
   my $testing = 1;
-
   use Getopt::Std;
 
   # Get ref-Proteins
@@ -35,32 +33,12 @@ sub mymain () {
   # get a result as a multidimensional array
   my (@matrix) = Salami::Compare::proteins( @proteins_ref, @proteins_test );
 
-  my $fmt_s = ' %6s';
-  my $fmt_q = ' %6.2f';
-
-  printf( $fmt_s, ' ' );
-  for ( my $i = 0 ; $i < @proteins_test ; $i++ ) {
-    printf( $fmt_s, @proteins_test[$i] );
-  }
-  print("\n");
-
-  foreach my $i ( keys @matrix ) {
-    my @row = @{ $matrix[$i] };
-    printf( $fmt_s, @proteins_ref[$i] );
-    foreach my $j ( keys @row ) {
-      printf( $fmt_q, $matrix[$i][$j] );
-    }
-    print("\n");
-  }
-
   # Apply PCA to given matrix
-  ( my $raw, my $matrix, my $matrixP, my $matrixT ) =
-    Salami::PCA::normalized(@matrix);
+  # return all matrixes (raw, rest, P, T)
+  ( my $raw, my $matrix, my $matrixP, my $matrixT ) = Salami::PCA::raw(@matrix);
 
-  #  $raw->print("-->Raw:\n");
-  #  $matrix->print("-->Rest:\n");
-  #  $matrixP->print("Matrix P: \n");
-  #  $matrixT->print("Matrix T: \n");
+  # Build a data structure
+  # to push into templater
   my $result = {};
   my ( $m, $n ) = $matrixT->size;
   foreach my $i ( 0 ... ( $m - 1 ) ) {
@@ -71,12 +49,12 @@ sub mymain () {
     };
   }
 
-  my $xslate = Text::Xslate->new( path => ["$Bin/template"], );
-  my $content =
-    $xslate->render( "matrix.xslate.xml", { collection => $result } );
+  # Initialize templater and
+  # define folder with template
+  my $xslate = Text::Xslate->new( "path" => ["$Bin/template"], );
 
-  print $content;
-
+  # build a template to xml
+  # output ready xml to console
+  print $xslate->render( "matrix.xslate.xml", { "collection" => $result } );
 }
-
 exit( mymain() );
