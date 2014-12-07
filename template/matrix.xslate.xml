@@ -1,0 +1,10 @@
+<similarities>
+	: for $collection.keys() -> $index {
+	<similarity id="<: $index :>">
+		<pdbid><: $index :></pdbid>
+		<x><: $collection[$index].x :></x>
+		<y><: $collection[$index].y :></y>
+		<z><: $collection[$index].z :></z>
+	</similarity>
+	: }
+</similarities>
