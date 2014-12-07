@@ -9,24 +9,23 @@ use Text::Xslate;
 # Compare proteins all to all
 # get a result as a multidimensional array
 sub all_to_all (\@\@) {
-  my ( $proteins_ref, $proteins_test ) = @_;
-  my @proteins_ref  = @$proteins_ref;
-  my @proteins_test = @$proteins_test;
+  my ( $ref, $test ) = @_;
+  my @ref  = @$ref;
+  my @test = @$test;
 
   # Use script from Andrew Torda
-  my (@matrix) =
-    Similarity::Compare::all_to_all( @proteins_ref, @proteins_test );
+  my (@matrix) = Similarity::Compare::all_to_all( @ref, @test );
 
   # Apply PCA to given matrix
   # return all matrixes (raw, rest, P, T)
-  ( my $raw, my $matrix, my $P, my $T ) = matrix_to_pca(@matrix);
+  ( my $raw, my $matrix, my $P, my $T ) = Similarity::Pca::normalized(@matrix);
 
   # Build a data structure
   # to push into templater
   my $result = {};
   my ( $m, $n ) = $T->size;
   foreach my $i ( 0 ... ( $m - 1 ) ) {
-    $result->{"@proteins_ref[$i]"} = {
+    $result->{"@ref[$i]"} = {
       "x" => $T->[$i]->[0],
       "y" => $T->[$i]->[1],
       "z" => $T->[$i]->[2],
@@ -35,16 +34,8 @@ sub all_to_all (\@\@) {
   return $result;
 }
 
-# Apply PCA to given matrix
-# return all matrixes (raw, rest, P, T)
-sub matrix_to_pca (@) {
-  my (@matrix) = @_;
-
-  # Use module from Alex Woroschilow
-  return Similarity::Pca::normalized(@matrix);
-}
-
 # Build result to xml
+# hier can be a another decorator
 sub to_xml ($) {
   my ($collection) = @_;
 
