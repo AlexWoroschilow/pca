@@ -20,7 +20,19 @@ sub all_to_all (\@\@) {
   # Apply PCA to given matrix
   # return all matrixes (raw, rest, P, T)
   ( my $raw, my $matrix, my $P, my $T ) = matrix_to_pca(@matrix);
-  return $T;
+
+  # Build a data structure
+  # to push into templater
+  my $result = {};
+  my ( $m, $n ) = $T->size;
+  foreach my $i ( 0 ... ( $m - 1 ) ) {
+    $result->{"@proteins_ref[$i]"} = {
+      "x" => $T->[$i]->[0],
+      "y" => $T->[$i]->[1],
+      "z" => $T->[$i]->[2],
+    };
+  }
+  return $result;
 }
 
 # Apply PCA to given matrix
@@ -34,19 +46,7 @@ sub matrix_to_pca (@) {
 
 # Build result to xml
 sub to_xml ($) {
-  my ($T) = @_;
-
-  # Build a data structure
-  # to push into templater
-  my $result = {};
-  my ( $m, $n ) = $T->size;
-  foreach my $i ( 0 ... ( $m - 1 ) ) {
-    $result->{"@proteins_ref[$i]"} = {
-      "x" => $T->[$i]->[0],
-      "y" => $T->[$i]->[1],
-      "z" => $T->[$i]->[2],
-    };
-  }
+  my ($collection) = @_;
 
   # Initialize templater and
   # define folder with template
@@ -54,6 +54,7 @@ sub to_xml ($) {
 
   # build a template to xml
   # output ready xml to console
-  return $xslate->render( "matrix.xslate.xml", { "collection" => $result } );
+  return $xslate->render( "matrix.xslate.xml",
+    { "collection" => $collection } );
 }
 1;
