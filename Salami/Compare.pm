@@ -131,8 +131,9 @@ sub name {
 #
 # Method to compare Proteins
 #
-sub proteins (@) {
-  my ( $string1, $string2 ) = @_;
+sub proteins (\@\@) {
+#  my ( $string1, $string2 ) = @_;
+  my ( @proteins_ref, @proteins_test ) = @_;
 
   use Getopt::Std;
 
@@ -141,12 +142,12 @@ sub proteins (@) {
   # Get ref-Proteins
   # from a first string
   # like a "4mn7A,3oovB,5ptiA"
-  my @proteins_ref = split( ',', $string1 );
+#  my @proteins_ref = split( ',', $string1 );
 
   # get test-Proteins
   # from a second string
   # like a "4mn7A,3oovB,5ptiA"
-  my @proteins_test = split( ',', $string2 );
+#  my @proteins_test = split( ',', $string2 );
 
   # Replace 1 to 0
   # for production use

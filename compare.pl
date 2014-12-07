@@ -6,14 +6,21 @@ use POSIX qw(EXIT_SUCCESS EXIT_FAILURE);
 sub mymain () {
   use Getopt::Std;
 
-  my $proteins_ref  = $ARGV[0];
-  my $proteins_test = $ARGV[1];
+  # Get ref-Proteins
+  # from a first string
+  # like a "4mn7A,3oovB,5ptiA"
+  my @proteins_ref = split( ',', $ARGV[0] );
 
-  my (@result) = Salami::Compare::proteins( $proteins_ref, $proteins_test );
+  # get test-Proteins
+  # from a second string
+  # like a "4mn7A,3oovB,5ptiA"
+  my @proteins_test = split( ',', $ARGV[1] );
+  my (@result) = Salami::Compare::proteins( @proteins_ref, @proteins_test );
 
   my $fmt_s = ' %6s';
   my $fmt_q = ' %6.2f';
-  printf( $fmt_s, ' ' );
+
+  #  printf( $fmt_s, ' ' );
 
   foreach my $i ( keys @result ) {
     my @row = @{ $result[$i] };
