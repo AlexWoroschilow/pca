@@ -268,18 +268,16 @@ seem to be implemented, but in 5.20, we could do the following:
 =cut
 
 use FindBin;
+use Similarity::Builder;
 
 # use lib "/home/other/wurst/salamiServer/wurst/blib/lib";
 # use lib "/home/other/wurst/salamiServer/wurst/blib/arch";
-
 use lib
   "$ENV{HOME}/Projekt/wurst/scripts";  # instead of the server's normal defaults
 use Salamisrvini;
 use lib $LIB_LIB;                      #initialize in local Salamisrvini.pm;
 use lib $LIB_ARCH;                     #initialize in local Salamisrvini.pm;
-
 use Wurst;
-
 use vars qw ($MATRIX_DIR $PARAM_DIR
   $RS_PARAM_FILE $FX9_PARAM_FILE );
 
@@ -290,10 +288,8 @@ if ( defined( $ENV{SGE_ROOT} ) ) {
   $MATRIX_DIR = "$ENV{HOME}/../../torda/c/wurst/matrix";
   $PARAM_DIR  = "$ENV{HOME}/../../torda/c/wurst/params";
 }
-
 use strict;
 use warnings;
-
 use POSIX qw(EXIT_SUCCESS EXIT_FAILURE);
 
 # global variable for using the combined or the single ca/strct functions
@@ -307,7 +303,6 @@ $N_BRIEF_LIST   = 100;
 $N_MODELS       = 5;
 $N_ALIGNMENTS   = 5;
 $MAG_NUM_ASREST = 50;
-
 use vars qw ($modeldir $DFLT_MODELDIR);
 *DFLT_MODELDIR = \'modeldir';
 $modeldir      = $DFLT_MODELDIR;
@@ -322,7 +317,6 @@ use vars qw ($mail_from_addr $mail_reply_to $mail_prog);
 # During testing, we do not want to be able to switch off things
 # like the calculation, mailing... These are turned on and off
 # here.
-
 use vars qw ($really_mail $fake_args );
 *really_mail = \undef;
 *fake_args   = \1;
@@ -356,7 +350,6 @@ use vars qw (
 
 # These parameters will be used for extending alignments via a
 # Needleman and Wunsch
-
 use vars qw (
   $nw_pgap_open
   $nw_qgap_open
@@ -371,7 +364,6 @@ use vars qw (
 # options like whether or not we have secondary structure
 # information.
 # pgap controls penalties in the sequence, qgap in the structure.
-
 sub set_params () {
 
   #    changed by Iryna
@@ -386,16 +378,15 @@ sub set_params () {
   *s_const        = \-0.03642;
   *weight         = \0.7642;
   *gauss_err      = \0.4;
-
-  *tau_error     = \0.15;
-  *ca_dist_error = \0.385;
-  *corr_num      = \4;
-  *m_s_scale     = \0;
-  *m_shift       = \0;
-  *nw_pgap_open  = \$sw1_pgap_open;
-  *nw_qgap_open  = \$sw1_qgap_open;
-  *nw_pgap_widen = \$sw1_pgap_widen;
-  *nw_qgap_widen = \$sw1_qgap_widen;
+  *tau_error      = \0.15;
+  *ca_dist_error  = \0.385;
+  *corr_num       = \4;
+  *m_s_scale      = \0;
+  *m_shift        = \0;
+  *nw_pgap_open   = \$sw1_pgap_open;
+  *nw_qgap_open   = \$sw1_qgap_open;
+  *nw_pgap_widen  = \$sw1_pgap_widen;
+  *nw_qgap_widen  = \$sw1_qgap_widen;
 }
 
 # ----------------------- log_job   ---------------------------------
@@ -524,7 +515,6 @@ sub usage () {
 # ----------------------- get_scores --------------------------------
 sub get_scores ($ $ $ $) {
   my ( $pair_set, $coord1, $coord2, $to_use ) = @_;
-
   my ( $scr_tot, $coverage, $score1, $geo_gap, $score1_gap );
   my ( $str1, $crap );
   my ( $open_cost, $widen_cost, $nseq_gap );
@@ -535,7 +525,6 @@ sub get_scores ($ $ $ $) {
   $coverage =
     $coverage / seq_size( coord_get_seq($coord1) )
     ;                                 #and as fraction of query structure
-
   my ( $k_scr2, $k_gap_geo, $k_seq_gap, $k_str_gap, $k_str_wdn );
 
   if ( $coverage < .05 ) {
@@ -547,34 +536,26 @@ sub get_scores ($ $ $ $) {
   else {
     ( $open_cost, $widen_cost ) = pair_set_gap( $pair_set, 1, 1 );
   }
-
   $k_str_gap = 1 * $sw1_pgap_open;
   $k_str_wdn = 1 * $sw1_pgap_widen;
-
-  $scr_tot = $score1 + $k_str_gap * $open_cost + $k_str_wdn * $widen_cost;
+  $scr_tot   = $score1 + $k_str_gap * $open_cost + $k_str_wdn * $widen_cost;
   return ( $scr_tot, $coverage, $score1, $score1_gap, $nseq_gap, $open_cost );
 }
 
 # ----------------------- close_up_and_mail -------------------------
 # This could be a happy or unhappy exit.
-
 sub close_up_and_mail ($ $ $) {
   my ( $subject, $address, $text_to_mail ) = @_;
-
   $ENV{sendwait} = '1';       # Might persade mailer to finish before returning
   $ENV{encoding} = '8bit';    # Otherwise mailer thinks about quoted-printable
-
   if ( !defined($address) ) {
     print STDERR "No address found ! $subject $address\n";
     return undef;
   }
-
   my @cmdline = $mail_prog;
-
   if ( defined($subject) ) {
     push( @cmdline, '-s', $subject );
   }
-
   push( @cmdline, '-r', $mail_from_addr );
   push( @cmdline, $address );
   my $mail_ret = 0;
@@ -589,14 +570,12 @@ sub close_up_and_mail ($ $ $) {
     print " I would invoke @cmdline\n";
     $mail_ret = 0;
   }
-
   if ( $mail_ret != EXIT_SUCCESS ) {
     return undef;
   }
   else {
     return 1;
   }
-
 }
 
 # ----------------------- bad_exit ----------------------------------
@@ -630,11 +609,9 @@ sub bad_exit ( $ ) {
 sub get_alt_scores($ $ $) {
   my ( $num_scrs, $scr_mat, $pair_set ) = @_;
   my @scr_fin;
-
   for ( my $i = 0 ; $i < $num_scrs ; $i++ ) {
     $scr_fin[$i] = find_alt_path_score_simple( $scr_mat, $pair_set );
   }
-
   return \@scr_fin;
 }
 
@@ -643,21 +620,17 @@ sub get_alt_scores($ $ $) {
 sub normalize_alt_scores($) {
   my ($scrs_ref) = @_;
   my $mean = 0.0;
-
   foreach my $scr ( @{$scrs_ref} ) {
     $mean += $scr;
   }
   $mean /= @$scrs_ref;
-
   my $deviation = 0.0;
-
   foreach my $scr (@$scrs_ref) {
     my $tmp = $scr - $mean;
     $deviation += ( $tmp * $tmp );
   }
   $deviation /= ( @$scrs_ref - 1 );
   $deviation = sqrt($deviation);
-
   return ( $mean, $deviation );
 }
 
@@ -682,7 +655,6 @@ sub get_dme_thresh ($ $ $) {
 
 # ----------------------- do_align ----------------------------------
 # This does the alignment.
-
 sub do_align ($ $ $ $ $ $) {
   my ( $coord1, $coord2, $pvec1_strct, $pvec2_strct, $pvec1_ca, $pvec2_ca ) =
     @_;
@@ -696,7 +668,6 @@ sub do_align ($ $ $ $ $ $) {
   #
   #   score_pvec( $matrix, $pvec1, $pvec2);
   #   $matrix = score_mat_shift( $matrix, $m_shift );
-
   if ( $function == 1 || $function == 0 ) {
     $matrix_ca = score_mat_new( seq_size($seq_ptr1), seq_size($seq_ptr2) );
     score_pvec( $matrix_ca, $pvec1_ca, $pvec2_ca );
@@ -735,25 +706,21 @@ sub do_align ($ $ $ $ $ $) {
     $nw_scr_tot,    $nw_coverage, $nw_score1,
     $nw_score1_gap, $nw_seq_gap,  $nw_strct_gap
   );
-
   my $sw_pair_set = score_mat_sum_smpl(
     my $crap_mat,   $tot_matrix,     $sw1_pgap_open, $sw1_pgap_widen,
     $sw1_qgap_open, $sw1_qgap_widen, $S_AND_W
   );
-
   (
     $sw_scr_tot,    $sw_coverage, $sw_score1,
     $sw_score1_gap, $sw_seq_gap,  $sw_strct_gap
   ) = get_scores( $sw_pair_set, $coord1, $coord2, 's_and_w' );
-  my $frac_dme = get_dme_thresh( $sw_pair_set, $coord1, $coord2 );
-
-  my $num_scrs = 1000;
+  my $frac_dme     = get_dme_thresh( $sw_pair_set, $coord1, $coord2 );
+  my $num_scrs     = 1000;
   my $alt_scrs_ref = get_alt_scores( $num_scrs, $tot_matrix, $sw_pair_set );
-
   my ( $mean, $deviation ) = normalize_alt_scores($alt_scrs_ref);
-
   undef($alt_scrs_ref);
   my $z_scr;
+
   if ( $deviation != 0 ) {
     $z_scr = ( $sw_scr_tot - $mean ) / $deviation;
   }
@@ -765,7 +732,6 @@ sub do_align ($ $ $ $ $ $) {
   if ( $sw_coverage < 0.03 ) {    # silently wipe these guys out
     $z_scr = 0.0;
   }
-
   my $sec_strct_pnlty = 0.0;
   my $newcoord;
 
@@ -776,7 +742,6 @@ sub do_align ($ $ $ $ $ $) {
   my $rmsd;
 
   # ====================================
-
   my $patscor;
   my @r = (
     $sw_scr_tot, $rmsd,      $nw_scr_tot,  $sw_coverage, $nw_coverage,
@@ -805,7 +770,6 @@ sub read_struct_pl ($ $) {
   my ( $pvec_strct, $pvec_ca );
   if ( $function == 1 || $function == 0 ) {
     my $vecfile_ca = "$PVEC_CA_DIR/$vecname.vec";
-
     if ( -e $vecfile_ca ) {
       $pvec_ca = prob_vec_read($vecfile_ca);
     }
@@ -831,7 +795,6 @@ sub read_struct_pl ($ $) {
       $pvec_strct = strct_2_prob_vec( $coord1, $strct_classfcn );
     }
   }
-
   return ( $pvec_strct, $pvec_ca );
 }
 
@@ -839,7 +802,6 @@ sub read_struct_pl ($ $) {
 # the argument list is already quite daunting.
 # Declare them here and set them up in do_lib() just before the main loop.
 # close them at the very end of the script.
-
 use vars qw ( @low_reader_thr
   @low_reader_q
   @low_reader_done_q
@@ -920,7 +882,6 @@ sub start_threads($) {
   my $a           = shift;
   my $struct_dirs = $$a[0];
   my $struct_list = $$a[1];
-
   $check_file_thr =
     threads->create( 'ini_file_check', $struct_dirs, $struct_list,
     $BIN_SUFFIX );
@@ -938,7 +899,6 @@ sub get_local_name ($) {
   $in = "$LOCAL_STORAGE/$in";
   return $in;
 }
-
 use File::Copy qw/ copy /;
 
 # ----------------------- copy_to_local -----------------------------
@@ -962,7 +922,6 @@ sub copy_to_local ($) {
     }
   }
 }
-
 $prot_reader_first = 1;
 
 # ----------------------- prot_reader--------------------------------
@@ -1023,7 +982,6 @@ sub prot_reader () {
 # can avoid copying data. Instead, we invent a package and put
 # results into @r::r. The downside is that we have to manually
 # free it up at the end by calling undef().
-
 sub do_lib (\@ \@ $ $ $ $ $ $ $ $ $) {
   my (
     $structlist, $struct_dirs, $query_struct, $coord1,
@@ -1035,11 +993,10 @@ sub do_lib (\@ \@ $ $ $ $ $ $ $ $ $) {
   use File::Basename;
   $vecname = basename( $query_struct, ".bin" );
   my $queryseq = coord_get_seq($coord1);
-
   ( $pvec1_strct, $pvec1_ca ) = read_struct_pl( $vecname, $coord1 );
-
   my $minsize  = seq_size( coord_get_seq($coord1) );
   my $n_to_buf = 10;
+
   if ( $n_to_buf >= ( $#$structlist + 1 ) ) {
     $n_to_buf = $#$structlist;
   }    # Very unlikely, but does happen when debugging
@@ -1134,11 +1091,9 @@ sub do_lib (\@ \@ $ $ $ $ $ $ $ $ $) {
       $pvec1_ca = undef;
       $pvec2_ca = undef;
     }
-
     $r::r[$i] =
       do_align( $coord2, $coord1, $pvec2_strct, $pvec1_strct, $pvec2_ca,
       $pvec1_ca );
-
     $r::r[$i][4] =
       get_seq_id_simple( $r::r[$i][7], coord_get_seq($coord2),
       coord_get_seq($coord1) );
@@ -1148,7 +1103,6 @@ sub do_lib (\@ \@ $ $ $ $ $ $ $ $ $) {
     }
     $r::r[$i][2] = $r::r[$i][9] * ( ( $r::r[$i][6] ) / $minsize );
     $r::r[$i][11] = $r::r[$i][6]**$r::r[$i][9];
-
   }
 
   #   The main loop over the library is now finished
@@ -1159,7 +1113,6 @@ sub do_lib (\@ \@ $ $ $ $ $ $ $ $ $) {
     $prot_reader->join();
     $check_file_thr->join();
   }
-
   my @indices;
   for ( my $i = 0 ; $i < @$structlist ; $i++ ) {
     $indices[$i] = $i;
@@ -1168,10 +1121,8 @@ sub do_lib (\@ \@ $ $ $ $ $ $ $ $ $) {
   #   changed by Iryna
   #   @indices = sort { $r::r[$b][2] <=> $r::r[$a][2]; } @indices;
   @indices = sort { $r::r[$b][11] <=> $r::r[$a][11]; } @indices;
-
   my $htmldir = $RESDIR . $jobfolder;
   my $mkdret  = mkdir $htmldir;
-
   if ( $mkdret != 1 ) {
     if ( -e $htmldir ) {
       print STDERR "Output folder \"$htmldir\" exists. Possible problem.\n";
@@ -1194,9 +1145,7 @@ sub do_lib (\@ \@ $ $ $ $ $ $ $ $ $) {
   $$text_to_mail .= " $url\n";
   coord_2_pdb( "$htmldir/modeldir/$vecname.pdb", $coord1 );
   open XML, ">$htmldir/results.xml";
-
   my $todo = ( @$structlist > $maxItNum ? $maxItNum : @$structlist );
-
   print XML "
 <query>
 
@@ -1212,18 +1161,17 @@ sub do_lib (\@ \@ $ $ $ $ $ $ $ $ $) {
 
  <results>
 ";
+
   if ( !-d $modeldir ) {
     if ( !mkdir( "$modeldir", 0777 ) ) {
       bad_exit("Fail create modeldir ($modeldir): $!");
     }
   }
   my $p1 = coord_name($coord1);
-
   print STDERR " TODO: $todo merge_alignments............\n";
   my $veclist = initveclist( $todo + 1 );
   my $seqlist = initseqlist( $todo + 1 );
   print STDERR "initlist done \n";
-
   my $pvec1;
   if ( $function == 2 || $function == 0 ) {
 
@@ -1255,12 +1203,10 @@ sub do_lib (\@ \@ $ $ $ $ $ $ $ $ $) {
       )
     );
     addseq( $seqlist, $seq );
-
     $malignm = merge_localigns( $malignm, $r::r[ $indices[$i] ][7], 1, 1 );
     $malignm = remove_seq( $malignm, get_pair_set_m($malignm) - 1 );
   }
   my $test = get_pair_set_m($malignm);    #test
-
   print STDERR "m = $test \n";
   print STDERR "str X = ",
     pair_set_string( $malignm, coord_get_seq($coord1), coord_get_seq($coord1) );
@@ -1277,25 +1223,23 @@ sub do_lib (\@ \@ $ $ $ $ $ $ $ $ $) {
   my $j     = 0;
   my $shift = 0;
 MINFRAGDME: {    #for the dme thresh
+    my @proteins = ();
     for ( my $i = 0 ; $i < ( $todo + $shift ) ; $i++ ) {
       my $idx      = $indices[$i];
       my $pair_set = $r::r[$idx][7];
       my $a        = $r::r[$idx];
-
       if ( $$a[9] < $minFracDME ) {
         if ( @$structlist < ( $todo + $shift ) ) {
           last;
         }
         else {
           $shift++;
-          next;    #MINFRAGDME;
+          next;           #MINFRAGDME;
         }
       }
-
       my $coord2 =
         coord_read(
         get_path( @$struct_dirs, $$structlist[$idx] . $BIN_SUFFIX ) );
-
       ( $$a[1], $$a[10], my $crap_b ) =
         coord_rmsd( $$a[7], $coord2, $coord1, 0 );
       my $p2 = $$structlist[$idx];
@@ -1308,8 +1252,8 @@ MINFRAGDME: {    #for the dme thresh
         $sid = 0.0;
       }
       my $pdbid = $$structlist[$idx];
+      push(@proteins, $pdbid);
       print STDERR "START START START   \n";
-
       my $alistr;
       my $seq1        = coord_get_seq($coord1);
       my $seq2        = coord_get_seq($coord2);
@@ -1318,6 +1262,7 @@ MINFRAGDME: {    #for the dme thresh
       ( $$a[1], $$a[10], my $coord11 ) =
         coord_rmsd( $set_alg_tmp, $$a[10], $coord1, 0 );
       my $n = get_pair_set_n($set_alg_tmp);
+
       while ( ( $$a[1] > $rmsd_thresh ) && ( $n > $MAG_NUM_ASREST ) ) {
         ( $$a[1], $$a[10], my $coord11 ) =
           coord_rmsd( $set_alg_tmp, $$a[10], $coord11, 0 );
@@ -1344,7 +1289,6 @@ MINFRAGDME: {    #for the dme thresh
   </result>
 ", $$a[8], $$a[9], $$a[6] / seq_size( coord_get_seq($coord1) ), $sid, $$a[6],
         $$a[1], $$a[2];
-
       my $alistr1 = pair_set_stringI( $pair_set, 1, $seq1 );
       my $alistr2 = pair_set_stringI( $pair_set, 0, $seq2 );
       my $num1 = pair_set_get_strNum( $pair_set, 1, $coord1 );
@@ -1403,19 +1347,21 @@ MINFRAGDME: {    #for the dme thresh
     # TODO: Insert here code to collect
     # all protein list to find
     # all-to-all similarity
-
   }    #MINFRAGDME:
   print "\n";
   print XML"  </results>";
 
+  # Fix from Alex to add
+  # info about all-to-all similarity
+  print XML Similarity::Builder::to_xml(
+    Similarity::Builder::all_to_all( @proteins, @proteins ) );
+
   # TODO: Insert here code to
   # build xml data with all-to-all
   # proteins similarity
-
   print XML"</query>";
   close XML;
   close ALI;
-
   if ( $N_MODELS > 0 ) {
     coord_2_pdb( "$vecname.pdb", $coord1 );
     for ( my $i = 0 ; $i < $N_MODELS && $i < $todo ; $i++ ) {
@@ -1483,7 +1429,6 @@ sub mymain () {
   use threads::shared;
   mkdir("salami_2.pl_is_running");
   use File::Temp qw/ tempdir /;
-
   if ( !( $LOCAL_STORAGE = tempdir( DIR => $LOCAL_STORAGE, CLEANUP => 1 ) ) ) {
     print STDERR "Failed to make tempdir in $LOCAL_STORAGE\n$!\n";
     return EXIT_FAILURE;
@@ -1497,10 +1442,8 @@ sub mymain () {
   @struct_dirs = @DFLT_STRUCT_DIRS;
 
   #--------------------------------server stuff-------------------------
-
   #   Set up directory for output and models. It is the only place
   #   we will be allowed to write to, so cleanup is easy after disaster
-
   if ( !-d $TOP_TEMP ) {
     mkdir($TOP_TEMP) || bad_exit("Fail creating $TOP_TEMP: $!");
   }
@@ -1509,16 +1452,13 @@ sub mymain () {
   }
 
   # *+-* TEMPDIR AT $TOP_TEMP ON CLUSTER AT  home/other/wurst/wurst_delete....
-
   $tmp_dir = tempdir( DIR => $TOP_TEMP, CLEANUP => 1 );
-
   chmod 0777, $tmp_dir;    # So normal people can look for disasters.
   $modeldir = "$tmp_dir/modeldir";    # Where models go. Automatically cleaned.
 
   #   If the machines get rebooted or jobs are killed, try to mail
   #   back some information. Trap the errors.
   kill_handlers();
-
   my $email_address = "Anonymous";
   my $minFracDME;
   my $maxItNum;
@@ -1541,7 +1481,6 @@ sub mymain () {
     $opts{x} = 'no';
     $opts{p} = 'str';
   }
-
   if ( !getopts( 'a:d:e:n:h:s:t:q:l:r:f:i:o:x:p:', \%opts ) ) {
     usage();
   }
@@ -1601,23 +1540,19 @@ sub mymain () {
   if ( !$fake_args ) {
     log_job( $email_address, 'start', $title );
   }
-
   set_params();
   my $query_struct;
   my $query_struct_name = $structfile;
-
   check_dirs(@struct_dirs);
   if ( @struct_dirs == 0 ) {
     die "\nNo valid structure directory. Stopping.\n";
   }
-
   ( @struct_list = get_prot_list($libfile) ) || $fatalflag++;
   share($thread_error);
   {
     my @checker_list = ( \@struct_dirs, \@struct_list, $BIN_SUFFIX );
     start_threads( \@checker_list );
   }
-
   if ($fatalflag) {
     print STDERR "struct dirs were @struct_dirs\n";
     print STDERR "Fatal problems\n";
@@ -1629,11 +1564,9 @@ sub mymain () {
     return EXIT_FAILURE;
   }
   $query_struct_name =~ s/\..+$//;
-
   my $text_to_mail;
 
   # *+-* THE ACTUAL CALCULATION!!!
-
   my $r = do_lib(
     @struct_list, @struct_dirs, $query_struct_name, $query_struct,
     $title,       $rmsd_t,      $minFracDME,        $maxItNum,
@@ -1657,7 +1590,6 @@ sub mymain () {
   if ( !$fake_args ) {
     log_job( $email_address, 'stop', $title );
   }
-
   return EXIT_SUCCESS;
 }
 
