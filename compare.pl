@@ -1,6 +1,6 @@
 #!/usr/bin/perl
-use Salami::PCA;
-use Salami::Compare;
+use Similarity::Pca;
+use Similarity::Compare;
 use FindBin qw($Bin);
 use Text::Xslate;
 use POSIX qw(EXIT_SUCCESS EXIT_FAILURE);
@@ -31,11 +31,11 @@ sub mymain () {
 
   # compare proteins all to all
   # get a result as a multidimensional array
-  my (@matrix) = Salami::Compare::proteins( @proteins_ref, @proteins_test );
+  my (@matrix) = Similarity::Compare::all_to_all( @proteins_ref, @proteins_test );
 
   # Apply PCA to given matrix
   # return all matrixes (raw, rest, P, T)
-  ( my $raw, my $matrix, my $matrixP, my $matrixT ) = Salami::PCA::raw(@matrix);
+  ( my $raw, my $matrix, my $matrixP, my $matrixT ) = Similarity::Pca::raw(@matrix);
 
   # Build a data structure
   # to push into templater

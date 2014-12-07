@@ -1,4 +1,4 @@
-package Salami::PCA;
+package Similarity::Pca;
 use Math::Matrix;
 use Math::Complex;
 

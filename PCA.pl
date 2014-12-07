@@ -1,6 +1,7 @@
 #!/usr/bin/perl
-
-use Salami::PCA;
+use FindBin qw($Bin);
+use Text::Xslate;
+use Similarity::Pca;
 
 my @raw1 = (
   [ 198, 92, -1, 48, 48, 45, 420, 115, -1, 98, -1, 100 ],
@@ -59,11 +60,25 @@ my @raw2 = (
   [ 0.3234, 0.3216, 0.3247, 0.3225, 0.3257 ],
 );
 ( my $raw, my $matrix, my $matrixP, my $matrixT ) =
-  Salami::PCA::normalized(@raw2);
+  Similarity::Pca::normalized(@raw2);
 
-$raw->print("-->Raw:\n");
-$matrix->print("-->Rest:\n");
-$matrixP->print("Matrix P: \n");
-$matrixT->print("Matrix T: \n");
+#$raw->print("-->Raw:\n");
+#$matrix->print("-->Rest:\n");
+#$matrixP->print("Matrix P: \n");
+#$matrixT->print("Matrix T: \n");
 
-print("--> done");
+my $result = {};
+my ( $m, $n ) = $matrixT->size;
+foreach my $i ( 0 ... ( $m - 1 ) ) {
+  $result->{"test$i"} = {
+    "x" => $matrixT->[$i]->[0],
+    "y" => $matrixT->[$i]->[1],
+    "z" => $matrixT->[$i]->[2],
+  };
+}
+
+my $xslate = Text::Xslate->new( path => ["$Bin/template"], );
+my $content = $xslate->render( "matrix.xslate.xml", { "collection" => $result } );
+
+print $content;
+

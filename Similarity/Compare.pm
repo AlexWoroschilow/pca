@@ -1,4 +1,4 @@
-package Salami::Compare;
+package Similarity::Compare;
 
 use strict;
 use warnings;
@@ -131,7 +131,7 @@ sub name {
 #
 # Method to compare Proteins
 #
-sub proteins (\@\@) {
+sub all_to_all (\@\@) {
   my ( $proteins_ref, $proteins_test ) = @_;
 
   my @proteins_ref  = @$proteins_ref;
