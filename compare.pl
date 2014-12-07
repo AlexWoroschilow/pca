@@ -11,13 +11,18 @@ sub mymain () {
 
   my (@result) = Salami::Compare::proteins( $proteins_ref, $proteins_test );
 
-  print(@result);
+  my $fmt_s = ' %6s';
+  my $fmt_q = ' %6.2f';
+  printf( $fmt_s, ' ' );
 
-  #  my $debug_till_i_puke = 1;
-  #  if ($debug_till_i_puke) {
-  #    my $fmt_s = ' %6s';
-  #    my $fmt_q = ' %6.2f';
-  #    printf( $fmt_s, ' ' );
+  foreach my $i ( keys @result ) {
+    my @row = @{ $result[$i] };
+    foreach my $j ( keys @row ) {
+      printf( $fmt_q, $result[$i][$j] );
+    }
+    print("\n");
+  }
+
   #    for ( my $i = 0 ; $i < @proteins_test ; $i++ ) {
   #      printf( $fmt_s, Salami::Compare::name( $test_c[$i] ) );
   #    }
@@ -29,7 +34,6 @@ sub mymain () {
   #      }
   #      print "\n";
   #    }
-  #  }
 
 }
 
