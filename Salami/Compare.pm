@@ -132,8 +132,11 @@ sub name {
 # Method to compare Proteins
 #
 sub proteins (\@\@) {
-  my ( @proteins_ref, @proteins_test ) = @_;
+  my ( $proteins_ref, $proteins_test ) = @_;
 
+  my @proteins_ref  = @$proteins_ref;
+  my @proteins_test = @$proteins_test;
+  
   use Getopt::Std;
 
   my (%opts);
@@ -166,26 +169,7 @@ sub proteins (\@\@) {
       }
     }
   }
-
   return @q_scr;
-
-  #  my $debug_till_i_puke = 1;
-  #  if ($debug_till_i_puke) {
-  #    my $fmt_s = ' %6s';
-  #    my $fmt_q = ' %6.2f';
-  #    printf( $fmt_s, ' ' );
-  #    for ( my $i = 0 ; $i < @proteins_test ; $i++ ) {
-  #      printf( $fmt_s, name( $test_c[$i] ) );
-  #    }
-  #    print "\n";
-  #    for ( my $i = 0 ; $i < @proteins_ref ; $i++ ) {
-  #      printf( $fmt_s, name( $ref_c[$i] ) );
-  #      for ( my $j = 0 ; $j < @proteins_test ; $j++ ) {
-  #        printf( $fmt_q, $q_scr[$i][$j] );
-  #      }
-  #      print "\n";
-  #    }
-  #  }
 }
 
 1;
