@@ -10,7 +10,6 @@ sub to_xml (\@\@) {
   my ( $proteins_ref, $proteins_test ) = @_;
   my @proteins_ref  = @$proteins_ref;
   my @proteins_test = @$proteins_test;
-  return "asdfad\n";
 
   # Compare proteins all to all
   # get a result as a multidimensional array
