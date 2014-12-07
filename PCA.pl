@@ -60,7 +60,7 @@ my @raw2 = (
   [ 0.3234, 0.3216, 0.3247, 0.3225, 0.3257 ],
 );
 ( my $raw, my $matrix, my $matrixP, my $matrixT ) =
-  Similarity::Pca::normalized(@raw2);
+  Similarity::Pca::normalized(@raw2, 3);
 
 #$raw->print("-->Raw:\n");
 #$matrix->print("-->Rest:\n");

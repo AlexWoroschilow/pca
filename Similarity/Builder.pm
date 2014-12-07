@@ -8,8 +8,8 @@ use Text::Xslate;
 
 # Compare proteins all to all
 # get a result as a multidimensional array
-sub all_to_all (\@\@) {
-  my ( $ref, $test ) = @_;
+sub all_to_all (\@ \@ $) {
+  my ( $ref, $test, $pc ) = @_;
   my @ref  = @$ref;
   my @test = @$test;
 
@@ -18,8 +18,8 @@ sub all_to_all (\@\@) {
 
   # Apply PCA to given matrix
   # return all matrixes (raw, rest, P, T)
-  ( my $raw, my $rest, my $P, my $T ) = Similarity::Pca::normalized(@matrix);
-
+  ( my $raw, my $rest, my $P, my $T ) =
+    Similarity::Pca::normalized( @matrix, $pc );
   $raw->print("Matrix raw:\n");
   $rest->print("Matrix rest:\n");
   $T->print("Matrix T:\n");

@@ -42,6 +42,6 @@ sub mymain () {
     );
     @proteins_test = @proteins_ref;
   }
-  print to_xml( all_to_all( @proteins_ref, @proteins_test ) );
+  print to_xml( all_to_all( @proteins_ref, @proteins_test, 3 ) );
 }
 exit( mymain() );
