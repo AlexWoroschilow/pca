@@ -132,34 +132,11 @@ sub name {
 # Method to compare Proteins
 #
 sub proteins (\@\@) {
-#  my ( $string1, $string2 ) = @_;
   my ( @proteins_ref, @proteins_test ) = @_;
 
   use Getopt::Std;
 
   my (%opts);
-
-  # Get ref-Proteins
-  # from a first string
-  # like a "4mn7A,3oovB,5ptiA"
-#  my @proteins_ref = split( ',', $string1 );
-
-  # get test-Proteins
-  # from a second string
-  # like a "4mn7A,3oovB,5ptiA"
-#  my @proteins_test = split( ',', $string2 );
-
-  # Replace 1 to 0
-  # for production use
-  my $testing = 1;
-
-  # Replace found proteins
-  # with a test proteins
-  if ($testing) {
-    @proteins_ref = ( '5ptiA', '4nkpA', '3fpvB', '4mn7A', '9ptiA' );
-    @proteins_test = ( '5ptiA', '2qybA', '3oovB' );
-  }
-
   set_params();
   my ( @ref_c, @ref_v, @test_c, @test_v );
 
@@ -192,23 +169,23 @@ sub proteins (\@\@) {
 
   return @q_scr;
 
-#  my $debug_till_i_puke = 1;
-#  if ($debug_till_i_puke) {
-#    my $fmt_s = ' %6s';
-#    my $fmt_q = ' %6.2f';
-#    printf( $fmt_s, ' ' );
-#    for ( my $i = 0 ; $i < @proteins_test ; $i++ ) {
-#      printf( $fmt_s, name( $test_c[$i] ) );
-#    }
-#    print "\n";
-#    for ( my $i = 0 ; $i < @proteins_ref ; $i++ ) {
-#      printf( $fmt_s, name( $ref_c[$i] ) );
-#      for ( my $j = 0 ; $j < @proteins_test ; $j++ ) {
-#        printf( $fmt_q, $q_scr[$i][$j] );
-#      }
-#      print "\n";
-#    }
-#  }
+  #  my $debug_till_i_puke = 1;
+  #  if ($debug_till_i_puke) {
+  #    my $fmt_s = ' %6s';
+  #    my $fmt_q = ' %6.2f';
+  #    printf( $fmt_s, ' ' );
+  #    for ( my $i = 0 ; $i < @proteins_test ; $i++ ) {
+  #      printf( $fmt_s, name( $test_c[$i] ) );
+  #    }
+  #    print "\n";
+  #    for ( my $i = 0 ; $i < @proteins_ref ; $i++ ) {
+  #      printf( $fmt_s, name( $ref_c[$i] ) );
+  #      for ( my $j = 0 ; $j < @proteins_test ; $j++ ) {
+  #        printf( $fmt_q, $q_scr[$i][$j] );
+  #      }
+  #      print "\n";
+  #    }
+  #  }
 }
 
 1;
