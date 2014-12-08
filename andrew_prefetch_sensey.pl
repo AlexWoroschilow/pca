@@ -1222,8 +1222,9 @@ sub do_lib (\@ \@ $ $ $ $ $ $ $ $ $) {
   # ====================================
   my $j     = 0;
   my $shift = 0;
+  my @proteins = ();
+
 MINFRAGDME: {    #for the dme thresh
-    my @proteins = ();
     for ( my $i = 0 ; $i < ( $todo + $shift ) ; $i++ ) {
       my $idx      = $indices[$i];
       my $pair_set = $r::r[$idx][7];
