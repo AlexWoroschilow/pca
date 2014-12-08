@@ -1354,7 +1354,7 @@ MINFRAGDME: {    #for the dme thresh
   # Fix from Alex to add
   # info about all-to-all similarity
   print XML Similarity::Builder::to_xml(
-    Similarity::Builder::all_to_all( @proteins, @proteins ) );
+    Similarity::Builder::all_to_all( @proteins, @proteins, 3 ) );
 
   # TODO: Insert here code to
   # build xml data with all-to-all
