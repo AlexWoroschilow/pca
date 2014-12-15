@@ -1,0 +1,66 @@
+<html>
+
+<head>  
+        <title>SALAMI Result</title>
+        <link id="favicon" rel="icon" type="image/x-icon" href="img/salamilogo5.jpg" />
+        
+        <!--base href="http://flensburg.zbh.uni-hamburg.de/~wurst/salami/version_2/index.html"-->
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="generator" content="TYPO3 4.4 CMS" />
+
+        <!-- Style sheets -->
+        <link rel="stylesheet" type="text/css" href="../../../extern/css/jquery-ui.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/frontpages.css" media="screen" />
+
+        <!-- Scripts -->
+        <script src="../../../extern/current-jquery"></script>
+        <script src="../../../extern/current-jmol/Jmol.js"></script>
+        <script src="../../../extern/current-jquery-ui"></script>
+        <script src="../../../extern/current-dataTables"></script>
+        <script src="../../../extern/current-sparkline"></script>
+        <script src="../../job.default/load.js"></script>
+
+        <script src="../../../help/load_help.js"></script>
+        
+
+</head>
+
+<!-- HTML -->
+<body>
+
+  <div id="alignment_details" style="display:none">Loading content...</div>
+
+  <div class="result_header"></div>
+
+  <div id="results_of">Results of query structure <span class="span_query_structure"></span></div>
+
+  <div id="jmolBox">
+    <script type="text/javascript">
+      jmolInitialize("../../../extern/current-jmol");
+      jmolApplet(600, "javascript load_first_hit()");
+    </script>
+  </div>
+
+  <div id="results_box"></div>
+
+
+</body>
+
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

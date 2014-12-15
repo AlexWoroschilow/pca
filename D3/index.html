@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+    text {
+        font: 10px sans-serif;
+    }
+
+</style>
+<body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//d3js.org/d3.v3.min.js"></script>
+
+<script src="jquery.d3.graph.js"></script>
+
+<div id="graph"></div>
+
+<script type="text/javascript">
+    $(function () {
+
+        var container = $(document);
+
+        container.find("#graph")
+                .diagram("results.xml", 700);
+
+        container.on("click-node", function (event) {
+            console.info(event);
+        });
+
+        container.on("click-label", function (event) {
+            console.info(event);
+        });
+
+    });
+</script>

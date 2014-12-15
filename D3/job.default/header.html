@@ -1,0 +1,70 @@
+<h2>SALAMI - The structure alignment tool</h2>
+    <ul id="menu">
+
+      <li class="topmenu">
+        <a class="toplink" name="show_table">Table</a>
+        <ul>
+          <li class="submenu">
+<table>
+  <tr>
+    <td><input id="1" class="col_check" type="checkbox"/></td>
+    <td>Z-score</td>
+  </tr>
+  <tr>
+    <td><input id="2" class="col_check" type="checkbox"/></td>
+    <td>frac DME</td>
+  </tr>
+  <tr>
+    <td><input id="3" class="col_check" type="checkbox"/></td>
+    <td>SW coverage</td>
+  </tr>
+  <tr>
+    <td><input id="4" class="col_check" type="checkbox"/></td>
+    <td>Sequence id</td>
+  </tr>
+  <tr>
+    <td><input id="5" class="col_check" type="checkbox"/></td>
+    <td>Size</td>
+  </tr>
+  <tr>
+    <td><input id="6" class="col_check" type="checkbox"/></td>
+    <td>RMSD</td>
+  </tr>
+  <tr>
+    <td><input id="7" class="col_check" type="checkbox"/></td>
+    <td>Q-score</td>
+  </tr>
+</table>
+			     </li>
+        </ul>
+      </li>
+
+      <li class="topmenu">
+        <a class="toplink">Display</a>
+        <ul>
+          <li class="submenu"><a class="sublink"><div id="jmolControl"></div></a></li>
+        </ul>
+      </li>
+     
+      <li class="topmenu">
+        <a class="toplink">Downloads</a>
+        <ul>
+          <li class="submenu"><a class="sublink" id="fastalink" target="_blank">alignment</a></li>
+          <li class="submenu"><a class="sublink" id="pdblink">superimposed PDB coordinates</a></li>
+          <li class="submenu"><a class="sublink" id="pdbpagelink" target="_blank">PDB entry of selected structure</a></li>
+        </ul>
+      </li>
+
+      <li class="topmenu">
+        <a class="toplink">Info</a>
+        <ul>
+          <li class="submenu">Algorithm Settings:<br> - RMDS threshold: <span id="rmsd_thresh"></span><br>
+                                - min fraction of distance matrix elements: <span id="min_fdme"></span><br>
+                                - number of results: <span id="max_n"></span></li>
+        </ul>
+      </li>
+
+      <li class="topmenu">
+        <a class="toplink" href="../../../help/index.html" target="_blank">Help</a>
+      </li>
+    </ul>

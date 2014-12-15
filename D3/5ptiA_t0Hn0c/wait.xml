@@ -1,0 +1,24 @@
+<wait>
+ <params>
+  <Query__structure>5ptiA</Query__structure>
+  <Submitted__Title>SalamiSearjunkch</Submitted__Title>
+  <E-mail>junk@mailinator.com</E-mail>
+  <rmsd__Threshold>3</rmsd__Threshold>
+  <minimal__FracDME>0.75</minimal__FracDME>
+  <number__of__results>100</number__of__results>
+  <add__to__calculated__results>no</add__to__calculated__results>
+ </params>
+
+ <warnings>
+  <success>Your query PDB ID could be found in the official database.</success>
+ </warnings>
+
+ <time>
+  <year>2014</year>
+  <month>09</month>
+  <day>03</day>
+  <hour>16</hour>
+  <min>53</min>
+  <sec>47</sec>
+ </time>
+</wait>

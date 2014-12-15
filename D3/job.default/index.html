@@ -1,0 +1,85 @@
+<html>
+
+<head>
+        <script src="../../../extern/current-jquery"></script>
+        <script src="../../../extern/current-jquery-ui"></script>
+        <script src="../../../extern/XMLParser.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="../../../css/frontpages.css"/>
+        <link rel="stylesheet" type="text/css" href="../../../extern/css/jquery-ui.css"/>
+
+	<script type="text/javascript">
+
+                $(document).ready(function() {
+
+                        var loc = window.location.pathname.split("/");
+                        var xml_path = "../jobs/" + loc[loc.length-2] + "/wait.xml";
+                        
+                        jQuery.ajax({
+                                type: "POST",
+                                url: '../../job.default/xslt.php',
+                                data: {xml: xml_path , xsl: 'wait.xsl'},
+                                success:function(data) {
+                                        var converted = data.split("**/?**");
+                                        var q = converted[0].replace(/__/g, " ");
+                                        $("#query").html(q);
+                                        $("#warning").html(converted[1]);
+                                        $("#started_at").html(converted[2]);
+                                }
+                        });                             
+                        
+                        $(".waiting_accordion").accordion();
+                        
+                        // iterative check whether results are there yet
+                        function checkForIndex(){
+                                $.ajax({
+                                        type: 'HEAD',
+                                        url: 'results.xml',
+                                        success: function() {
+                                                //change not copy XXX
+                                                $.post("../../../scripts/copy_paste.php", {copy: "../results/job.default/salami_results.html", paste: "../results/jobs/" + loc[loc.length-2] + "/index.html"}, function(data){ 
+                                                	location.reload(true);
+                                                });
+                                        }, 
+                                        error: function() {
+                                                $("#waited").append(".");
+                                        }
+                                });
+                        }
+                        window.setInterval(checkForIndex, 30000, true);
+                });
+
+
+
+
+	</script>
+
+
+<body id="body">
+
+<div class="waiting_page">
+        <div class="waiting_accordion">
+                <h1>Your query</h1>
+                        <div class="accordion_tab">
+                        	<p>Please wait, our server is currently calculating your job...<br/>
+                        	   The results of your query will soon be online at this url.</p>
+                        	<div id="query"></div>
+			</div>
+                <h1>Warnings</h1>
+                        <div id="warning" class="accordion_tab"></div>
+                <h1>Time</h1>
+                        <div id="waitings" class="accordion_tab"> 
+				Started at: <span id="started_at"></span><br>
+				<span id="waited"><span>
+			</div>
+
+	</div>
+</div>
+
+
+
+</body>
+
+</html>
+
+
