@@ -1,7 +1,7 @@
 package Similarity::Builder;
-use FindBin;
 use base Exporter;
 use Text::Xslate;
+use FindBin;
 use lib "$FindBin::Bin/lib/";
 use Similarity::Pca;
 use Similarity::Compare;
