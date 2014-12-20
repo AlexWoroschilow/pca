@@ -55,13 +55,14 @@ sub xml ($) {
   my ($collection) = @_;
 
   print("$FindBin::Bin/template");
-#  # Initialize templater and
-#  # define folder with template
-#  my $xslate = Text::Xslate->new( "path" => ["$FindBin::Bin/template"], );
-#
-#  # build a template to xml
-#  # output ready xml to console
-#  return $xslate->render( "matrix.xslate.xml",
-#    { "collection" => $collection } );
+  # Initialize templater and
+  # define folder with template
+  my $xslate = Text::Xslate->new( "path" => ["$FindBin::Bin/template"], );
+
+  # build a template to xml
+  # output ready xml to console
+  return $xslate->render( "matrix.xslate.xml", { 
+    "collection" => $collection 
+  });
 }
 1;
