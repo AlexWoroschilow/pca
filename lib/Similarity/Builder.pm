@@ -25,7 +25,7 @@ sub all_to_all () {
 
   # Use script from Andrew Torda
   my (@matrix) = Similarity::Compare::all_to_all( 
-    $this->{ref1}, $this->{ref2} 
+    $self->{ref1}, $self->{ref2} 
   );
 
   # Apply PCA to given matrix
