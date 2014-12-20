@@ -268,6 +268,7 @@ seem to be implemented, but in 5.20, we could do the following:
 =cut
 
 use FindBin;
+use lib "$FindBin::Bin/lib/";
 use Similarity::Builder;
 
 # use lib "/home/other/wurst/salamiServer/wurst/blib/lib";
@@ -1354,8 +1355,13 @@ MINFRAGDME: {    #for the dme thresh
 
   # Fix from Alex to add
   # info about all-to-all similarity
-  print XML Similarity::Builder::to_xml(
-    Similarity::Builder::all_to_all( @proteins, @proteins, 3 ) );
+  $builder = new Similarity::Builder({
+      ref1 => \@proteins,
+      ref2 => \@proteins,
+      pcc  => 3,
+    });
+    
+  print $builder->xml($builder->all_to_all());
 
   # TODO: Insert here code to
   # build xml data with all-to-all

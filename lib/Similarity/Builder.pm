@@ -20,6 +20,7 @@ sub new ($ \@ \@ $) {
 # get a result as a multidimensional array
 sub all_to_all () {
   my $self = shift;
+  
   my @ref1 = @{ $self->{ref1} };
   my @ref2 = @{ $self->{ref2} };
 
@@ -28,12 +29,14 @@ sub all_to_all () {
 
   # Apply PCA to given matrix
   # return all matrixes (raw, rest, P, T)
-  my $pca = new Similarity::Pca({
+  my $pca = new Similarity::Pca(
+    {
       matrix => \@matrix,
       pc     => $self->{pcc}
-    });
-  
+    }
+  );
   if ( $pca->pca() ) {
+
     # Build a data structure
     # to push into templater
     my $result = {};
@@ -52,14 +55,16 @@ sub all_to_all () {
 # Build result to xml
 # hier can be a another decorator
 sub xml ($) {
+  my $self = shift;
   my ($collection) = @_;
+
   # Initialize templater and
   # define folder with template
   my $xslate = Text::Xslate->new( "path" => ["$FindBin::Bin/template"], );
 
   # build a template to xml
   # output ready xml to console
-  return $xslate->render( "matrix.xslate.xml", { 
+  return $xslate->render( "matrix.xslate.xml",{ 
     "collection" => $collection 
   });
 }

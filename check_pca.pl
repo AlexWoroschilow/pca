@@ -1,9 +1,8 @@
 #!/usr/bin/perl
 use FindBin;
 use lib "$FindBin::Bin/lib/";
-
+use Text::Xslate;
 use Similarity::Pca;
-
 my @raw1 = (
   [ 198, 92, -1, 48, 48, 45, 420, 115, -1, 98, -1, 100 ],
   [ 184, 84, -1, 44, 33, 33, 350, 102, -1, 92, -1, 130 ],
@@ -59,31 +58,30 @@ my @raw2 = (
   [ 0.3536, 0.3456, 0.3527, 0.3347, 0.3453 ],
   [ 0.3234, 0.3216, 0.3247, 0.3225, 0.3257 ],
 );
-
-$pca = new Similarity::Pca({
-  matrix => \@raw2,
-  pc     => 3
-});
-
+$pca = new Similarity::Pca(
+  {
+    matrix => \@raw2,
+    pc     => 3
+  }
+);
 if ( $pca->pca() ) {
   $pca->{r}->print("-->Raw:\n");
   $pca->{m}->print("-->Rest:\n");
   $pca->{p}->print("Matrix P: \n");
   $pca->{t}->print("Matrix T: \n");
+  my $result = {};
+  my ( $m, $n ) = $pca->{t}->size;
+  foreach my $i ( 0 ... ( $m - 1 ) ) {
+    $result->{"test$i"} = {
+      "x" => $pca->{t}->[$i]->[0],
+      "y" => $pca->{t}->[$i]->[1],
+      "z" => $pca->{t}->[$i]->[2],
+    };
+  }
+  
+  my $xslate = Text::Xslate->new( path => ["$FindBin::Bin/template"], );
+  my $content = $xslate->render( "matrix.xslate.xml", { 
+    "collection" => $result 
+  } );
+  print $content;
 }
-
-#my $result = {};
-#my ( $m, $n ) = $matrixT->size;
-#foreach my $i ( 0 ... ( $m - 1 ) ) {
-#  $result->{"test$i"} = {
-#    "x" => $matrixT->[$i]->[0],
-#    "y" => $matrixT->[$i]->[1],
-#    "z" => $matrixT->[$i]->[2],
-#  };
-#}
-#
-#my $xslate = Text::Xslate->new( path => ["$Bin/template"], );
-#my $content = $xslate->render( "matrix.xslate.xml", { "collection" => $result } );
-#
-#print $content;
-#
