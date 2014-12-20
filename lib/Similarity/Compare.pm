@@ -144,7 +144,7 @@ sub get_path_output ($) {
 #  }
   
   if ( defined($OUTPUT_BIN_DIR) ) {
-    @folders = ($OUTPUT_BIN_DIR);
+    my @folders = ($OUTPUT_BIN_DIR);
     return get_path( @folders, $file );
   }
   print STDERR ": No global output folder has been defined";
@@ -160,7 +160,7 @@ sub get_path_vector ($) {
 #    return get_path( @PVEC_CA_DIRS, $file );
 #  }
   if ( defined($PVEC_STRCT_DIR) ) {
-    @folders = ($PVEC_STRCT_DIR);
+    my @folders = ($PVEC_STRCT_DIR);
     return get_path( @folders, $file );
   }
   print STDERR ": No global vector folder has been defined";
