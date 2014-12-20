@@ -45,12 +45,12 @@ sub all_to_all () {
     # Build a data structure
     # to push into templater
     my $result = {};
-    my ( $m, $n ) = $T->size;
+    my ( $m, $n ) = $pca->{t}->size;
     foreach my $i ( 0 ... ( $m - 1 ) ) {
       $result->{"@ref[$i]"} = {
-        "x" => $T->[$i]->[0],
-        "y" => $T->[$i]->[1],
-        "z" => $T->[$i]->[2],
+        "x" => $pca->{t}->[$i]->[0],
+        "y" => $pca->{t}->[$i]->[1],
+        "z" => $pca->{t}->[$i]->[2],
       };
     }
     return $result;
