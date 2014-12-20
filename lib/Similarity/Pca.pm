@@ -22,6 +22,8 @@ sub pca () {
   $self->{m} = $self->{r}->clone;
   ( my $n, my $m ) = $self->{m}->size;
   my $threshold = 0.00001;
+  
+  
   foreach my $i ( 0 ... ( $self->{pc} - 1 ) ) {
     my $t  = $self->{m}->slice($i);
     my $P1 = $t->clone;

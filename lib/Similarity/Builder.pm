@@ -6,12 +6,12 @@ use lib "$FindBin::Bin/lib/";
 use Similarity::Pca;
 use Similarity::Compare;
 
-sub new () {
+sub new ($ \@ \@ $) {
   my ( $class, $args ) = @_;
   my $self = {
     ref1 => $args->{ref1},
     ref2 => $args->{ref2},
-    pcc  => $args->{pcc}
+    pcc  => $args->{pcc},
   };
   return bless $self, $class;
 }
@@ -28,18 +28,12 @@ sub all_to_all () {
 
   # Apply PCA to given matrix
   # return all matrixes (raw, rest, P, T)
-  my $pca = new Similarity::Pca(
-    {
+  my $pca = new Similarity::Pca({
       matrix => \@matrix,
-      pc     => $this->{pcc}
-    }
-  );
+      pc     => $self->{pcc}
+    });
+  
   if ( $pca->pca() ) {
-
-    #    $pca->{r}->print("-->Raw:\n");
-    #    $pca->{m}->print("-->Rest:\n");
-    #    $pca->{p}->print("Matrix P: \n");
-    #    $pca->{t}->print("Matrix T: \n");
     # Build a data structure
     # to push into templater
     my $result = {};
@@ -60,13 +54,14 @@ sub all_to_all () {
 sub xml ($) {
   my ($collection) = @_;
 
-  # Initialize templater and
-  # define folder with template
-  my $xslate = Text::Xslate->new( "path" => ["$FindBin::Bin/template"], );
-
-  # build a template to xml
-  # output ready xml to console
-  return $xslate->render( "matrix.xslate.xml",
-    { "collection" => $collection } );
+  print("$FindBin::Bin/template");
+#  # Initialize templater and
+#  # define folder with template
+#  my $xslate = Text::Xslate->new( "path" => ["$FindBin::Bin/template"], );
+#
+#  # build a template to xml
+#  # output ready xml to console
+#  return $xslate->render( "matrix.xslate.xml",
+#    { "collection" => $collection } );
 }
 1;
