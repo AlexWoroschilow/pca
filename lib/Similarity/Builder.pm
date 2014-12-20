@@ -1,51 +1,69 @@
 package Similarity::Builder;
+use FindBin;
 use base Exporter;
-our @EXPORT_OK = ( 'to_xml', 'all_to_all' );
+use Text::Xslate;
+use lib "$FindBin::Bin/lib/";
 use Similarity::Pca;
 use Similarity::Compare;
-use FindBin qw($Bin);
-use Text::Xslate;
+
+sub new () {
+  my ( $class, $args ) = @_;
+  my $self = {
+    ref1 => @{ $args->{ref1} },
+    ref2 => @{ $args->{ref2} },
+    pcc  => $args->{pcc}
+  };
+  return bless $self, $class;
+}
 
 # Compare proteins all to all
 # get a result as a multidimensional array
 sub all_to_all (\@ \@ $) {
-  my ( $ref, $test, $pc ) = @_;
-  my @ref  = @$ref;
-  my @test = @$test;
+  my $self = shift;
 
   # Use script from Andrew Torda
-  my (@matrix) = Similarity::Compare::all_to_all( @ref, @test );
+  my (@matrix) =
+    Similarity::Compare::all_to_all( $this->{ref1}, $this->{ref2} );
 
   # Apply PCA to given matrix
   # return all matrixes (raw, rest, P, T)
-  ( my $raw, my $rest, my $P, my $T ) =
-    Similarity::Pca::normalized( @matrix, $pc );
-  $raw->print("Matrix raw:\n");
-  $rest->print("Matrix rest:\n");
-  $T->print("Matrix T:\n");
+  $pca = new Similarity::Pca(
+    {
+      matrix => \@matrix,
+      pc     => $this->{pcc}
+    }
+  );
+  if ( $pca->pca() ) {
+    $pca->{r}->print("-->Raw:\n");
+    $pca->{m}->print("-->Rest:\n");
+    $pca->{p}->print("Matrix P: \n");
+    $pca->{t}->print("Matrix T: \n");
 
-  # Build a data structure
-  # to push into templater
-  my $result = {};
-  my ( $m, $n ) = $T->size;
-  foreach my $i ( 0 ... ( $m - 1 ) ) {
-    $result->{"@ref[$i]"} = {
-      "x" => $T->[$i]->[0],
-      "y" => $T->[$i]->[1],
-      "z" => $T->[$i]->[2],
-    };
+    # Build a data structure
+    # to push into templater
+    my $result = {};
+    my ( $m, $n ) = $T->size;
+    foreach my $i ( 0 ... ( $m - 1 ) ) {
+      $result->{"@ref[$i]"} = {
+        "x" => $T->[$i]->[0],
+        "y" => $T->[$i]->[1],
+        "z" => $T->[$i]->[2],
+      };
+    }
+    return $result;
   }
-  return $result;
 }
 
 # Build result to xml
 # hier can be a another decorator
-sub to_xml ($) {
+sub xml ($) {
   my ($collection) = @_;
+
+print("$FindBin::Bin/template");
 
   # Initialize templater and
   # define folder with template
-  my $xslate = Text::Xslate->new( "path" => ["$Bin/template"], );
+  my $xslate = Text::Xslate->new( "path" => ["$FindBin::Bin/template"], );
 
   # build a template to xml
   # output ready xml to console

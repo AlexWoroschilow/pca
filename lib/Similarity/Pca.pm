@@ -1,6 +1,6 @@
 package Similarity::Pca;
 use Math::Complex;
-use FindBin;    # locate this script
+use FindBin;
 use lib "$FindBin::Bin/lib/";
 use Math::Matrix;
 
