@@ -4,7 +4,7 @@ use base Exporter;
 use Text::Xslate;
 use lib "$FindBin::Bin/lib/";
 use Similarity::Pca;
-#use Similarity::Compare;
+use Similarity::Compare;
 
 sub new () {
   my ( $class, $args ) = @_;
