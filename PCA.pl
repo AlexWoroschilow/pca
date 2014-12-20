@@ -1,8 +1,7 @@
 #!/usr/bin/perl
-use FindBin qw($Bin);
-use Text::Xslate;
+use FindBin;    # locate this script
+use lib "$FindBin::Bin/lib/";
 use Similarity::Pca;
-
 my @raw1 = (
   [ 198, 92, -1, 48, 48, 45, 420, 115, -1, 98, -1, 100 ],
   [ 184, 84, -1, 44, 33, 33, 350, 102, -1, 92, -1, 130 ],
@@ -37,7 +36,6 @@ my @raw1 = (
   [ 161, 48, 1,  35, 41, 31, 116, 196, 1,  75, 1,  120 ],
   [ 160, 48, 1,  35, 40, 31, 118, 198, 1,  74, 1,  129 ],
 );
-
 my @raw2 = (
   [ 1.0000, 1.0000, 1.0000, 1.0000, 1.0000 ],
   [ 0.8927, 0.8956, 0.8956, 0.8936, 0.8992 ],
@@ -59,26 +57,31 @@ my @raw2 = (
   [ 0.3536, 0.3456, 0.3527, 0.3347, 0.3453 ],
   [ 0.3234, 0.3216, 0.3247, 0.3225, 0.3257 ],
 );
-( my $raw, my $matrix, my $matrixP, my $matrixT ) =
-  Similarity::Pca::normalized(@raw2, 3);
 
-#$raw->print("-->Raw:\n");
-#$matrix->print("-->Rest:\n");
-#$matrixP->print("Matrix P: \n");
-#$matrixT->print("Matrix T: \n");
+$pca = new Similarity::Pca({
+  matrix => \@raw2,
+  pc     => 3
+});
 
-my $result = {};
-my ( $m, $n ) = $matrixT->size;
-foreach my $i ( 0 ... ( $m - 1 ) ) {
-  $result->{"test$i"} = {
-    "x" => $matrixT->[$i]->[0],
-    "y" => $matrixT->[$i]->[1],
-    "z" => $matrixT->[$i]->[2],
-  };
+if ( $pca->pca() ) {
+  $pca->{r}->print("-->Raw:\n");
+  $pca->{m}->print("-->Rest:\n");
+  $pca->{p}->print("Matrix P: \n");
+  $pca->{t}->print("Matrix T: \n");
 }
 
-my $xslate = Text::Xslate->new( path => ["$Bin/template"], );
-my $content = $xslate->render( "matrix.xslate.xml", { "collection" => $result } );
-
-print $content;
-
+#my $result = {};
+#my ( $m, $n ) = $matrixT->size;
+#foreach my $i ( 0 ... ( $m - 1 ) ) {
+#  $result->{"test$i"} = {
+#    "x" => $matrixT->[$i]->[0],
+#    "y" => $matrixT->[$i]->[1],
+#    "z" => $matrixT->[$i]->[2],
+#  };
+#}
+#
+#my $xslate = Text::Xslate->new( path => ["$Bin/template"], );
+#my $content = $xslate->render( "matrix.xslate.xml", { "collection" => $result } );
+#
+#print $content;
+#
