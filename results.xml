@@ -5,9 +5,9 @@
    <structure>pdb3fpv</structure>
    <title>SalamiSearjunkch</title>
    <rmsd_thresh>3</rmsd_thresh>
-   <min_f_dme>0.75</min_f_dme>
+   <min_f_dme>0.</min_f_dme>
    <max_n>100</max_n>
-   <jobfolder>sensey</jobfolder>
+   <jobfolder>sensey1</jobfolder>
    <add_to_calc>no</add_to_calc>
  </params>
 
@@ -26,7 +26,7 @@
 
   <result id='2a2lD'>
     <pdbid>2a2lD</pdbid>
-    <z_scr>      37</z_scr>
+    <z_scr>    38.7</z_scr>
     <f_dme>       1</f_dme>
     <sw_cvr>  0.12</sw_cvr>
     <seq_id>26</seq_id>
@@ -37,7 +37,7 @@
 
   <result id='1th5A'>
     <pdbid>1th5A</pdbid>
-    <z_scr>    9.28</z_scr>
+    <z_scr>    9.88</z_scr>
     <f_dme>   0.965</f_dme>
     <sw_cvr>  0.06</sw_cvr>
     <seq_id>15</seq_id>
@@ -48,7 +48,7 @@
 
   <result id='1gccA'>
     <pdbid>1gccA</pdbid>
-    <z_scr>    11.8</z_scr>
+    <z_scr>    12.2</z_scr>
     <f_dme>   0.958</f_dme>
     <sw_cvr>  0.05</sw_cvr>
     <seq_id>12</seq_id>
@@ -59,7 +59,7 @@
 
   <result id='3kyeB'>
     <pdbid>3kyeB</pdbid>
-    <z_scr>    16.4</z_scr>
+    <z_scr>    15.7</z_scr>
     <f_dme>   0.778</f_dme>
     <sw_cvr>  0.10</sw_cvr>
     <seq_id>9</seq_id>
@@ -103,7 +103,7 @@
 
   <result id='2jucA'>
     <pdbid>2jucA</pdbid>
-    <z_scr>    14.9</z_scr>
+    <z_scr>      15</z_scr>
     <f_dme>    0.99</f_dme>
     <sw_cvr>  0.03</sw_cvr>
     <seq_id>11</seq_id>
@@ -125,7 +125,7 @@
 
   <result id='2b7eA'>
     <pdbid>2b7eA</pdbid>
-    <z_scr>    18.2</z_scr>
+    <z_scr>    18.9</z_scr>
     <f_dme>   0.881</f_dme>
     <sw_cvr>  0.05</sw_cvr>
     <seq_id>6</seq_id>
@@ -136,7 +136,7 @@
 
   <result id='2e30B'>
     <pdbid>2e30B</pdbid>
-    <z_scr>    8.02</z_scr>
+    <z_scr>    7.63</z_scr>
     <f_dme>       1</f_dme>
     <sw_cvr>  0.03</sw_cvr>
     <seq_id>9</seq_id>
@@ -169,7 +169,7 @@
 
   <result id='1z09A'>
     <pdbid>1z09A</pdbid>
-    <z_scr>    12.8</z_scr>
+    <z_scr>    12.5</z_scr>
     <f_dme>   0.761</f_dme>
     <sw_cvr>  0.08</sw_cvr>
     <seq_id>9</seq_id>
@@ -180,7 +180,7 @@
 
   <result id='1wh9A'>
     <pdbid>1wh9A</pdbid>
-    <z_scr>      14</z_scr>
+    <z_scr>    13.9</z_scr>
     <f_dme>    0.82</f_dme>
     <sw_cvr>  0.06</sw_cvr>
     <seq_id>10</seq_id>
@@ -235,7 +235,7 @@
 
   <result id='3r2nC'>
     <pdbid>3r2nC</pdbid>
-    <z_scr>    21.5</z_scr>
+    <z_scr>    20.6</z_scr>
     <f_dme>   0.776</f_dme>
     <sw_cvr>  0.07</sw_cvr>
     <seq_id>12</seq_id>
@@ -279,7 +279,7 @@
 
   <result id='2l4jA'>
     <pdbid>2l4jA</pdbid>
-    <z_scr>    13.7</z_scr>
+    <z_scr>    14.1</z_scr>
     <f_dme>       1</f_dme>
     <sw_cvr>  0.03</sw_cvr>
     <seq_id>7</seq_id>
@@ -290,7 +290,7 @@
 
   <result id='1hn3A'>
     <pdbid>1hn3A</pdbid>
-    <z_scr>    7.88</z_scr>
+    <z_scr>    7.84</z_scr>
     <f_dme>   0.956</f_dme>
     <sw_cvr>  0.03</sw_cvr>
     <seq_id>0</seq_id>
@@ -299,9 +299,20 @@
     <q_scr>0.0297</q_scr>
   </result>
 
+  <result id='3eeaB'>
+    <pdbid>3eeaB</pdbid>
+    <z_scr>    23.7</z_scr>
+    <f_dme>    0.69</f_dme>
+    <sw_cvr>  0.12</sw_cvr>
+    <seq_id>7</seq_id>
+    <asize>     138</asize>
+    <rmsd>  2.99</rmsd>
+    <q_scr>0.0844</q_scr>
+  </result>
+
   <result id='3o6qB'>
     <pdbid>3o6qB</pdbid>
-    <z_scr>    9.92</z_scr>
+    <z_scr>    10.1</z_scr>
     <f_dme>   0.903</f_dme>
     <sw_cvr>  0.04</sw_cvr>
     <seq_id>12</seq_id>
@@ -323,7 +334,7 @@
 
   <result id='1i5hW'>
     <pdbid>1i5hW</pdbid>
-    <z_scr>    11.3</z_scr>
+    <z_scr>    11.4</z_scr>
     <f_dme>   0.968</f_dme>
     <sw_cvr>  0.03</sw_cvr>
     <seq_id>12</seq_id>
@@ -332,9 +343,31 @@
     <q_scr>0.0283</q_scr>
   </result>
 
+  <result id='1veuB'>
+    <pdbid>1veuB</pdbid>
+    <z_scr>    18.8</z_scr>
+    <f_dme>   0.703</f_dme>
+    <sw_cvr>  0.11</sw_cvr>
+    <seq_id>12</seq_id>
+    <asize>     123</asize>
+    <rmsd>  2.94</rmsd>
+    <q_scr>0.0767</q_scr>
+  </result>
+
+  <result id='3rfbA'>
+    <pdbid>3rfbA</pdbid>
+    <z_scr>    21.7</z_scr>
+    <f_dme>    0.67</f_dme>
+    <sw_cvr>  0.14</sw_cvr>
+    <seq_id>6</seq_id>
+    <asize>     154</asize>
+    <rmsd>  2.98</rmsd>
+    <q_scr>0.0915</q_scr>
+  </result>
+
   <result id='1bh8A'>
     <pdbid>1bh8A</pdbid>
-    <z_scr>    10.9</z_scr>
+    <z_scr>    11.1</z_scr>
     <f_dme>   0.884</f_dme>
     <sw_cvr>  0.04</sw_cvr>
     <seq_id>11</seq_id>
@@ -345,7 +378,7 @@
 
   <result id='1y4mC'>
     <pdbid>1y4mC</pdbid>
-    <z_scr>    11.9</z_scr>
+    <z_scr>    11.8</z_scr>
     <f_dme>   0.883</f_dme>
     <sw_cvr>  0.04</sw_cvr>
     <seq_id>4</seq_id>
@@ -356,7 +389,7 @@
 
   <result id='3izbT'>
     <pdbid>3izbT</pdbid>
-    <z_scr>    13.3</z_scr>
+    <z_scr>      13</z_scr>
     <f_dme>   0.772</f_dme>
     <sw_cvr>  0.07</sw_cvr>
     <seq_id>8</seq_id>
@@ -367,7 +400,7 @@
 
   <result id='3k1rB'>
     <pdbid>3k1rB</pdbid>
-    <z_scr>    14.1</z_scr>
+    <z_scr>      14</z_scr>
     <f_dme>   0.819</f_dme>
     <sw_cvr>  0.05</sw_cvr>
     <seq_id>7</seq_id>
@@ -378,7 +411,7 @@
 
   <result id='2izyA'>
     <pdbid>2izyA</pdbid>
-    <z_scr>    10.4</z_scr>
+    <z_scr>    10.6</z_scr>
     <f_dme>   0.866</f_dme>
     <sw_cvr>  0.04</sw_cvr>
     <seq_id>2</seq_id>
@@ -398,6 +431,17 @@
     <q_scr>0.0285</q_scr>
   </result>
 
+  <result id='1fadA'>
+    <pdbid>1fadA</pdbid>
+    <z_scr>    13.8</z_scr>
+    <f_dme>   0.733</f_dme>
+    <sw_cvr>  0.08</sw_cvr>
+    <seq_id>12</seq_id>
+    <asize>      94</asize>
+    <rmsd>  6.04</rmsd>
+    <q_scr>0.0611</q_scr>
+  </result>
+
   <result id='3l32A'>
     <pdbid>3l32A</pdbid>
     <z_scr>    11.4</z_scr>
@@ -411,7 +455,7 @@
 
   <result id='2jujA'>
     <pdbid>2jujA</pdbid>
-    <z_scr>    16.1</z_scr>
+    <z_scr>    16.2</z_scr>
     <f_dme>   0.833</f_dme>
     <sw_cvr>  0.05</sw_cvr>
     <seq_id>15</seq_id>
@@ -422,7 +466,7 @@
 
   <result id='1t0fD'>
     <pdbid>1t0fD</pdbid>
-    <z_scr>    12.1</z_scr>
+    <z_scr>    11.9</z_scr>
     <f_dme>   0.958</f_dme>
     <sw_cvr>  0.03</sw_cvr>
     <seq_id>16</seq_id>
@@ -433,7 +477,7 @@
 
   <result id='3kxeB'>
     <pdbid>3kxeB</pdbid>
-    <z_scr>    22.2</z_scr>
+    <z_scr>      22</z_scr>
     <f_dme>   0.766</f_dme>
     <sw_cvr>  0.07</sw_cvr>
     <seq_id>11</seq_id>
@@ -466,7 +510,7 @@
 
   <result id='3e21A'>
     <pdbid>3e21A</pdbid>
-    <z_scr>    8.98</z_scr>
+    <z_scr>     8.8</z_scr>
     <f_dme>   0.987</f_dme>
     <sw_cvr>  0.02</sw_cvr>
     <seq_id>14</seq_id>
@@ -499,7 +543,7 @@
 
   <result id='1afoB'>
     <pdbid>1afoB</pdbid>
-    <z_scr>    7.03</z_scr>
+    <z_scr>    6.92</z_scr>
     <f_dme>   0.902</f_dme>
     <sw_cvr>  0.03</sw_cvr>
     <seq_id>3</seq_id>
@@ -508,9 +552,20 @@
     <q_scr>0.0304</q_scr>
   </result>
 
+  <result id='1v98A'>
+    <pdbid>1v98A</pdbid>
+    <z_scr>    20.2</z_scr>
+    <f_dme>   0.725</f_dme>
+    <sw_cvr>  0.08</sw_cvr>
+    <seq_id>11</seq_id>
+    <asize>      92</asize>
+    <rmsd>  4.32</rmsd>
+    <q_scr>0.0591</q_scr>
+  </result>
+
   <result id='1kjkA'>
     <pdbid>1kjkA</pdbid>
-    <z_scr>    9.46</z_scr>
+    <z_scr>    9.69</z_scr>
     <f_dme>   0.861</f_dme>
     <sw_cvr>  0.04</sw_cvr>
     <seq_id>11</seq_id>
@@ -521,7 +576,7 @@
 
   <result id='1p3qQ'>
     <pdbid>1p3qQ</pdbid>
-    <z_scr>    8.94</z_scr>
+    <z_scr>       9</z_scr>
     <f_dme>   0.902</f_dme>
     <sw_cvr>  0.03</sw_cvr>
     <seq_id>8</seq_id>
@@ -550,6 +605,28 @@
     <asize>      26</asize>
     <rmsd>  4.52</rmsd>
     <q_scr>0.0230</q_scr>
+  </result>
+
+  <result id='3ijfX'>
+    <pdbid>3ijfX</pdbid>
+    <z_scr>    23.2</z_scr>
+    <f_dme>   0.722</f_dme>
+    <sw_cvr>  0.08</sw_cvr>
+    <seq_id>7</seq_id>
+    <asize>      91</asize>
+    <rmsd>  4.61</rmsd>
+    <q_scr>0.0583</q_scr>
+  </result>
+
+  <result id='2k31A'>
+    <pdbid>2k31A</pdbid>
+    <z_scr>    28.4</z_scr>
+    <f_dme>   0.675</f_dme>
+    <sw_cvr>  0.11</sw_cvr>
+    <seq_id>10</seq_id>
+    <asize>     124</asize>
+    <rmsd>  2.99</rmsd>
+    <q_scr>0.0742</q_scr>
   </result>
 
   <result id='2bw3B'>
@@ -598,7 +675,7 @@
 
   <result id='2jpiA'>
     <pdbid>2jpiA</pdbid>
-    <z_scr>    13.8</z_scr>
+    <z_scr>    13.4</z_scr>
     <f_dme>   0.764</f_dme>
     <sw_cvr>  0.06</sw_cvr>
     <seq_id>3</seq_id>
@@ -609,7 +686,7 @@
 
   <result id='2doeA'>
     <pdbid>2doeA</pdbid>
-    <z_scr>      18</z_scr>
+    <z_scr>    18.4</z_scr>
     <f_dme>   0.759</f_dme>
     <sw_cvr>  0.06</sw_cvr>
     <seq_id>7</seq_id>
@@ -631,7 +708,7 @@
 
   <result id='2dyjA'>
     <pdbid>2dyjA</pdbid>
-    <z_scr>    13.1</z_scr>
+    <z_scr>    13.5</z_scr>
     <f_dme>   0.766</f_dme>
     <sw_cvr>  0.06</sw_cvr>
     <seq_id>10</seq_id>
@@ -653,7 +730,7 @@
 
   <result id='2hepA'>
     <pdbid>2hepA</pdbid>
-    <z_scr>    7.53</z_scr>
+    <z_scr>    7.87</z_scr>
     <f_dme>   0.897</f_dme>
     <sw_cvr>  0.03</sw_cvr>
     <seq_id>6</seq_id>
@@ -664,7 +741,7 @@
 
   <result id='1v92A'>
     <pdbid>1v92A</pdbid>
-    <z_scr>    12.4</z_scr>
+    <z_scr>    12.9</z_scr>
     <f_dme>   0.945</f_dme>
     <sw_cvr>  0.03</sw_cvr>
     <seq_id>13</seq_id>
@@ -675,7 +752,7 @@
 
   <result id='2zdjA'>
     <pdbid>2zdjA</pdbid>
-    <z_scr>    16.3</z_scr>
+    <z_scr>    16.8</z_scr>
     <f_dme>   0.809</f_dme>
     <sw_cvr>  0.05</sw_cvr>
     <seq_id>8</seq_id>
@@ -686,7 +763,7 @@
 
   <result id='1f4iA'>
     <pdbid>1f4iA</pdbid>
-    <z_scr>    10.6</z_scr>
+    <z_scr>     9.7</z_scr>
     <f_dme>   0.985</f_dme>
     <sw_cvr>  0.02</sw_cvr>
     <seq_id>4</seq_id>
@@ -719,7 +796,7 @@
 
   <result id='1wmvA'>
     <pdbid>1wmvA</pdbid>
-    <z_scr>    11.6</z_scr>
+    <z_scr>    12.3</z_scr>
     <f_dme>   0.915</f_dme>
     <sw_cvr>  0.03</sw_cvr>
     <seq_id>9</seq_id>
@@ -728,9 +805,20 @@
     <q_scr>0.0268</q_scr>
   </result>
 
+  <result id='1wmiA'>
+    <pdbid>1wmiA</pdbid>
+    <z_scr>    15.5</z_scr>
+    <f_dme>   0.724</f_dme>
+    <sw_cvr>  0.07</sw_cvr>
+    <seq_id>5</seq_id>
+    <asize>      83</asize>
+    <rmsd>  5.21</rmsd>
+    <q_scr>0.0533</q_scr>
+  </result>
+
   <result id='1oeyB'>
     <pdbid>1oeyB</pdbid>
-    <z_scr>    21.6</z_scr>
+    <z_scr>    22.7</z_scr>
     <f_dme>   0.864</f_dme>
     <sw_cvr>  0.04</sw_cvr>
     <seq_id>8</seq_id>
@@ -739,9 +827,20 @@
     <q_scr>0.0306</q_scr>
   </result>
 
+  <result id='2z6cB'>
+    <pdbid>2z6cB</pdbid>
+    <z_scr>    28.2</z_scr>
+    <f_dme>   0.708</f_dme>
+    <sw_cvr>  0.08</sw_cvr>
+    <seq_id>14</seq_id>
+    <asize>      90</asize>
+    <rmsd>  3.48</rmsd>
+    <q_scr>0.0565</q_scr>
+  </result>
+
   <result id='1qxfA'>
     <pdbid>1qxfA</pdbid>
-    <z_scr>    13.4</z_scr>
+    <z_scr>    12.6</z_scr>
     <f_dme>    0.99</f_dme>
     <sw_cvr>  0.02</sw_cvr>
     <seq_id>12</seq_id>
@@ -752,7 +851,7 @@
 
   <result id='2l0jB'>
     <pdbid>2l0jB</pdbid>
-    <z_scr>    11.1</z_scr>
+    <z_scr>    11.2</z_scr>
     <f_dme>   0.927</f_dme>
     <sw_cvr>  0.03</sw_cvr>
     <seq_id>6</seq_id>
@@ -770,6 +869,17 @@
     <asize>      53</asize>
     <rmsd>  8.92</rmsd>
     <q_scr>0.0376</q_scr>
+  </result>
+
+  <result id='3eusA'>
+    <pdbid>3eusA</pdbid>
+    <z_scr>    13.7</z_scr>
+    <f_dme>   0.734</f_dme>
+    <sw_cvr>  0.07</sw_cvr>
+    <seq_id>14</seq_id>
+    <asize>      76</asize>
+    <rmsd>  6.96</rmsd>
+    <q_scr>0.0495</q_scr>
   </result>
 
   <result id='3bd1C'>
@@ -794,9 +904,20 @@
     <q_scr>0.0213</q_scr>
   </result>
 
+  <result id='3dmoC'>
+    <pdbid>3dmoC</pdbid>
+    <z_scr>    21.6</z_scr>
+    <f_dme>   0.669</f_dme>
+    <sw_cvr>  0.10</sw_cvr>
+    <seq_id>21</seq_id>
+    <asize>     115</asize>
+    <rmsd>  4.67</rmsd>
+    <q_scr>0.0682</q_scr>
+  </result>
+
   <result id='2kvqE'>
     <pdbid>2kvqE</pdbid>
-    <z_scr>    19.9</z_scr>
+    <z_scr>    19.3</z_scr>
     <f_dme>   0.772</f_dme>
     <sw_cvr>  0.05</sw_cvr>
     <seq_id>16</seq_id>
@@ -807,7 +928,7 @@
 
   <result id='1fyjA'>
     <pdbid>1fyjA</pdbid>
-    <z_scr>    12.6</z_scr>
+    <z_scr>    12.4</z_scr>
     <f_dme>   0.828</f_dme>
     <sw_cvr>  0.04</sw_cvr>
     <seq_id>9</seq_id>
@@ -829,7 +950,7 @@
 
   <result id='1kbhA'>
     <pdbid>1kbhA</pdbid>
-    <z_scr>    8.37</z_scr>
+    <z_scr>    9.13</z_scr>
     <f_dme>   0.891</f_dme>
     <sw_cvr>  0.03</sw_cvr>
     <seq_id>17</seq_id>
@@ -840,7 +961,7 @@
 
   <result id='1y7yB'>
     <pdbid>1y7yB</pdbid>
-    <z_scr>    18.2</z_scr>
+    <z_scr>    17.2</z_scr>
     <f_dme>   0.783</f_dme>
     <sw_cvr>  0.05</sw_cvr>
     <seq_id>11</seq_id>
@@ -882,6 +1003,17 @@
     <q_scr>0.0293</q_scr>
   </result>
 
+  <result id='3pt3B'>
+    <pdbid>3pt3B</pdbid>
+    <z_scr>    15.9</z_scr>
+    <f_dme>   0.693</f_dme>
+    <sw_cvr>  0.09</sw_cvr>
+    <seq_id>9</seq_id>
+    <asize>      96</asize>
+    <rmsd>  3.07</rmsd>
+    <q_scr>0.0589</q_scr>
+  </result>
+
   <result id='1h3oA'>
     <pdbid>1h3oA</pdbid>
     <z_scr>    12.2</z_scr>
@@ -895,7 +1027,7 @@
 
   <result id='2y9tA'>
     <pdbid>2y9tA</pdbid>
-    <z_scr>    13.6</z_scr>
+    <z_scr>    13.5</z_scr>
     <f_dme>   0.756</f_dme>
     <sw_cvr>  0.06</sw_cvr>
     <seq_id>6</seq_id>
@@ -906,7 +1038,7 @@
 
   <result id='2eq3A'>
     <pdbid>2eq3A</pdbid>
-    <z_scr>    6.26</z_scr>
+    <z_scr>    6.37</z_scr>
     <f_dme>   0.868</f_dme>
     <sw_cvr>  0.03</sw_cvr>
     <seq_id>11</seq_id>
@@ -915,9 +1047,20 @@
     <q_scr>0.0292</q_scr>
   </result>
 
+  <result id='3b7hA'>
+    <pdbid>3b7hA</pdbid>
+    <z_scr>    13.4</z_scr>
+    <f_dme>   0.745</f_dme>
+    <sw_cvr>  0.06</sw_cvr>
+    <seq_id>4</seq_id>
+    <asize>      69</asize>
+    <rmsd>  7.31</rmsd>
+    <q_scr>0.0456</q_scr>
+  </result>
+
   <result id='3g5gG'>
     <pdbid>3g5gG</pdbid>
-    <z_scr>    18.6</z_scr>
+    <z_scr>    18.3</z_scr>
     <f_dme>   0.758</f_dme>
     <sw_cvr>  0.06</sw_cvr>
     <seq_id>3</seq_id>
@@ -939,7 +1082,7 @@
 
   <result id='2jnhA'>
     <pdbid>2jnhA</pdbid>
-    <z_scr>    13.4</z_scr>
+    <z_scr>    13.7</z_scr>
     <f_dme>   0.886</f_dme>
     <sw_cvr>  0.03</sw_cvr>
     <seq_id>6</seq_id>
@@ -948,9 +1091,20 @@
     <q_scr>0.0275</q_scr>
   </result>
 
+  <result id='1xb0B'>
+    <pdbid>1xb0B</pdbid>
+    <z_scr>    19.7</z_scr>
+    <f_dme>   0.734</f_dme>
+    <sw_cvr>  0.06</sw_cvr>
+    <seq_id>8</seq_id>
+    <asize>      73</asize>
+    <rmsd>  8.06</rmsd>
+    <q_scr>0.0475</q_scr>
+  </result>
+
   <result id='2hh3A'>
     <pdbid>2hh3A</pdbid>
-    <z_scr>    16.5</z_scr>
+    <z_scr>    16.3</z_scr>
     <f_dme>   0.753</f_dme>
     <sw_cvr>  0.06</sw_cvr>
     <seq_id>9</seq_id>
@@ -958,760 +1112,606 @@
     <rmsd>  5.14</rmsd>
     <q_scr>0.0434</q_scr>
   </result>
-
-  <result id='2vxdA'>
-    <pdbid>2vxdA</pdbid>
-    <z_scr>    6.82</z_scr>
-    <f_dme>   0.788</f_dme>
-    <sw_cvr>  0.05</sw_cvr>
-    <seq_id>7</seq_id>
-    <asize>      54</asize>
-    <rmsd>  9.56</rmsd>
-    <q_scr>0.0377</q_scr>
-  </result>
-
-  <result id='2gjhA'>
-    <pdbid>2gjhA</pdbid>
-    <z_scr>    10.6</z_scr>
-    <f_dme>   0.857</f_dme>
-    <sw_cvr>  0.03</sw_cvr>
-    <seq_id>18</seq_id>
-    <asize>      39</asize>
-    <rmsd> 11.14</rmsd>
-    <q_scr>0.0296</q_scr>
-  </result>
-
-  <result id='2b68A'>
-    <pdbid>2b68A</pdbid>
-    <z_scr>    7.78</z_scr>
-    <f_dme>   0.845</f_dme>
-    <sw_cvr>  0.04</sw_cvr>
-    <seq_id>5</seq_id>
-    <asize>      41</asize>
-    <rmsd>  6.15</rmsd>
-    <q_scr>0.0307</q_scr>
-  </result>
-
-  <result id='2fomA'>
-    <pdbid>2fomA</pdbid>
-    <z_scr>    26.2</z_scr>
-    <f_dme>   0.845</f_dme>
-    <sw_cvr>  0.04</sw_cvr>
-    <seq_id>10</seq_id>
-    <asize>      41</asize>
-    <rmsd>  6.88</rmsd>
-    <q_scr>0.0307</q_scr>
-  </result>
-
-  <result id='3kupB'>
-    <pdbid>3kupB</pdbid>
-    <z_scr>    12.1</z_scr>
-    <f_dme>   0.773</f_dme>
-    <sw_cvr>  0.05</sw_cvr>
-    <seq_id>5</seq_id>
-    <asize>      58</asize>
-    <rmsd>  9.00</rmsd>
-    <q_scr>0.0397</q_scr>
-  </result>
-
-  <result id='1t08B'>
-    <pdbid>1t08B</pdbid>
-    <z_scr>    14.6</z_scr>
-    <f_dme>    0.85</f_dme>
-    <sw_cvr>  0.04</sw_cvr>
-    <seq_id>12</seq_id>
-    <asize>      40</asize>
-    <rmsd>  9.73</rmsd>
-    <q_scr>0.0301</q_scr>
-  </result>
-
-  <result id='1ff4A'>
-    <pdbid>1ff4A</pdbid>
-    <z_scr>       0</z_scr>
-    <f_dme>       1</f_dme>
-    <sw_cvr>  0.02</sw_cvr>
-    <seq_id>9</seq_id>
-    <asize>      23</asize>
-    <rmsd>  4.66</rmsd>
-    <q_scr>0.0204</q_scr>
-  </result>
-
-  <result id='3neqA'>
-    <pdbid>3neqA</pdbid>
-    <z_scr>       0</z_scr>
-    <f_dme>       1</f_dme>
-    <sw_cvr>  0.02</sw_cvr>
-    <seq_id>13</seq_id>
-    <asize>      23</asize>
-    <rmsd>  4.62</rmsd>
-    <q_scr>0.0204</q_scr>
-  </result>
-
-  <result id='1jmzG'>
-    <pdbid>1jmzG</pdbid>
-    <z_scr>    12.1</z_scr>
-    <f_dme>   0.762</f_dme>
-    <sw_cvr>  0.05</sw_cvr>
-    <seq_id>7</seq_id>
-    <asize>      61</asize>
-    <rmsd>  7.40</rmsd>
-    <q_scr>0.0412</q_scr>
-  </result>
-
-  <result id='2khhA'>
-    <pdbid>2khhA</pdbid>
-    <z_scr>    17.5</z_scr>
-    <f_dme>   0.833</f_dme>
-    <sw_cvr>  0.04</sw_cvr>
-    <seq_id>9</seq_id>
-    <asize>      43</asize>
-    <rmsd>  7.36</rmsd>
-    <q_scr>0.0317</q_scr>
-  </result>
-
-  <result id='2f44B'>
-    <pdbid>2f44B</pdbid>
-    <z_scr>    13.3</z_scr>
-    <f_dme>   0.768</f_dme>
-    <sw_cvr>  0.05</sw_cvr>
-    <seq_id>7</seq_id>
-    <asize>      59</asize>
-    <rmsd>  7.23</rmsd>
-    <q_scr>0.0402</q_scr>
-  </result>
-
-  <result id='1nvpB'>
-    <pdbid>1nvpB</pdbid>
-    <z_scr>    11.2</z_scr>
-    <f_dme>   0.854</f_dme>
-    <sw_cvr>  0.03</sw_cvr>
-    <seq_id>3</seq_id>
-    <asize>      39</asize>
-    <rmsd>  7.50</rmsd>
-    <q_scr>0.0295</q_scr>
-  </result>
-
-  <result id='1e79I'>
-    <pdbid>1e79I</pdbid>
-    <z_scr>    9.55</z_scr>
-    <f_dme>   0.859</f_dme>
-    <sw_cvr>  0.03</sw_cvr>
-    <seq_id>16</seq_id>
-    <asize>      38</asize>
-    <rmsd>  5.92</rmsd>
-    <q_scr>0.0289</q_scr>
-  </result>
-
-  <result id='1ywwA'>
-    <pdbid>1ywwA</pdbid>
-    <z_scr>    11.4</z_scr>
-    <f_dme>   0.757</f_dme>
-    <sw_cvr>  0.05</sw_cvr>
-    <seq_id>5</seq_id>
-    <asize>      62</asize>
-    <rmsd>  5.82</rmsd>
-    <q_scr>0.0416</q_scr>
-  </result>
   </results><similarities>
 	<similarity id="1afoB">
 		<pdbid>1afoB</pdbid>
-		<x>2.89849224193905</x>
-		<y>2.96607820664682</y>
-		<z>0.290603657429891</z>
+		<x>2.65550801184295</x>
+		<y>0.709508258578946</y>
+		<z>0.23002668869496</z>
 	</similarity>
 	<similarity id="1bh8A">
 		<pdbid>1bh8A</pdbid>
-		<x>8.38747986416587</x>
-		<y>8.35403970975595</y>
-		<z>-1.90896038751713</z>
-	</similarity>
-	<similarity id="1e79I">
-		<pdbid>1e79I</pdbid>
-		<x>-2.8777024204883</x>
-		<y>-2.93790534760103</y>
-		<z>1.41425611927266</z>
+		<x>8.56729956833289</x>
+		<y>1.20616252364512</y>
+		<z>-2.14451538884248</z>
 	</similarity>
 	<similarity id="1f4iA">
 		<pdbid>1f4iA</pdbid>
-		<x>5.70857278029321</x>
-		<y>5.70721329858955</y>
-		<z>-0.262483448299694</z>
+		<x>5.24035943044243</x>
+		<y>-3.40311654705536</y>
+		<z>0.4379484274543</z>
 	</similarity>
-	<similarity id="1ff4A">
-		<pdbid>1ff4A</pdbid>
-		<x>-17.2310150757666</x>
-		<y>-17.6368090693209</y>
-		<z>-0.727793772642539</z>
+	<similarity id="1fadA">
+		<pdbid>1fadA</pdbid>
+		<x>3.92361511868625</x>
+		<y>-3.36060783815171</y>
+		<z>-0.0568347581346782</z>
 	</similarity>
 	<similarity id="1fyjA">
 		<pdbid>1fyjA</pdbid>
-		<x>5.36759755890322</x>
-		<y>5.41825669313547</y>
-		<z>-0.279265866824604</z>
+		<x>5.24908875328119</x>
+		<y>-0.713307074540452</y>
+		<z>-0.165280017558799</z>
 	</similarity>
 	<similarity id="1gccA">
 		<pdbid>1gccA</pdbid>
-		<x>-6.85057579993056</x>
-		<y>-6.49123355694085</y>
-		<z>1.5360500035698</z>
+		<x>-8.46151124071131</x>
+		<y>2.07970400872324</y>
+		<z>1.41106163488519</z>
 	</similarity>
 	<similarity id="1gp8A">
 		<pdbid>1gp8A</pdbid>
-		<x>6.61764372975956</x>
-		<y>6.59152777539342</y>
-		<z>1.87282728474164</z>
+		<x>6.86598452432226</x>
+		<y>-0.937851371392238</y>
+		<z>1.70920828787838</z>
 	</similarity>
 	<similarity id="1h3oA">
 		<pdbid>1h3oA</pdbid>
-		<x>6.07931044739159</x>
-		<y>6.07120842831642</y>
-		<z>-1.30367143053005</z>
+		<x>6.43899430314324</x>
+		<y>2.13007634732247</y>
+		<z>-1.11578072972892</z>
 	</similarity>
 	<similarity id="1hn3A">
 		<pdbid>1hn3A</pdbid>
-		<x>0.832577728277829</x>
-		<y>0.578823891481283</y>
-		<z>0.759821371760069</z>
+		<x>0.11679677684394</x>
+		<y>-2.6206554367231</y>
+		<z>0.750447986420955</z>
 	</similarity>
 	<similarity id="1i5hW">
 		<pdbid>1i5hW</pdbid>
-		<x>-18.5214228087566</x>
-		<y>-18.2202430776136</y>
-		<z>0.190544523783922</z>
+		<x>-21.1773890617269</x>
+		<y>1.66602350852308</y>
+		<z>0.571190442669453</z>
 	</similarity>
 	<similarity id="1jkrC">
 		<pdbid>1jkrC</pdbid>
-		<x>3.3795377194846</x>
-		<y>3.32355646645215</y>
-		<z>-1.43649205549567</z>
-	</similarity>
-	<similarity id="1jmzG">
-		<pdbid>1jmzG</pdbid>
-		<x>-11.8137352350783</x>
-		<y>-12.036048905996</y>
-		<z>-2.03495631569875</z>
+		<x>3.17009027063332</x>
+		<y>-2.71340488982464</y>
+		<z>-1.60864287884603</z>
 	</similarity>
 	<similarity id="1kbhA">
 		<pdbid>1kbhA</pdbid>
-		<x>1.67530270685118</x>
-		<y>1.50187883590893</y>
-		<z>1.0022894367689</z>
+		<x>1.27378872439611</x>
+		<y>-2.75718390293845</y>
+		<z>1.2768528444892</z>
 	</similarity>
 	<similarity id="1kjkA">
 		<pdbid>1kjkA</pdbid>
-		<x>-5.66544604468763</x>
-		<y>-5.12015326698751</y>
-		<z>1.70680759403934</z>
+		<x>-6.73807490501992</x>
+		<y>4.32907059150348</y>
+		<z>1.58804258288603</z>
 	</similarity>
 	<similarity id="1ldkE">
 		<pdbid>1ldkE</pdbid>
-		<x>3.48225136297979</x>
-		<y>3.49788759651103</y>
-		<z>-1.50891229781275</z>
-	</similarity>
-	<similarity id="1nvpB">
-		<pdbid>1nvpB</pdbid>
-		<x>8.54724520168011</x>
-		<y>8.63341951509003</y>
-		<z>1.31968582577395</z>
+		<x>2.98759391163526</x>
+		<y>-1.43339496217582</y>
+		<z>-1.56023054198995</z>
 	</similarity>
 	<similarity id="1oeyB">
 		<pdbid>1oeyB</pdbid>
-		<x>-3.24762404877088</x>
-		<y>-3.27444428137889</y>
-		<z>-1.6798675656454</z>
+		<x>-4.32877097644536</x>
+		<y>-1.01891969473629</y>
+		<z>-1.66554628837615</z>
 	</similarity>
 	<similarity id="1ojhE">
 		<pdbid>1ojhE</pdbid>
-		<x>6.63848896663785</x>
-		<y>6.61308066758558</y>
-		<z>-1.24553972085032</z>
+		<x>7.02943753173866</x>
+		<y>2.26162191711212</y>
+		<z>-0.799266346295237</z>
 	</similarity>
 	<similarity id="1p3qQ">
 		<pdbid>1p3qQ</pdbid>
-		<x>4.31980386407355</x>
-		<y>4.37064012291157</y>
-		<z>0.976929860716559</z>
+		<x>3.91214705090171</x>
+		<y>-1.42338379353464</y>
+		<z>0.762647632722614</z>
 	</similarity>
 	<similarity id="1qxfA">
 		<pdbid>1qxfA</pdbid>
-		<x>-17.7357467977674</x>
-		<y>-17.7448621536324</y>
-		<z>-0.35612748225378</z>
+		<x>-19.624130447314</x>
+		<y>2.11369695499161</y>
+		<z>-0.753168742793303</z>
 	</similarity>
 	<similarity id="1rl5A">
 		<pdbid>1rl5A</pdbid>
-		<x>-17.2855686931522</x>
-		<y>-17.6890572571143</y>
-		<z>-0.827993719805323</z>
-	</similarity>
-	<similarity id="1t08B">
-		<pdbid>1t08B</pdbid>
-		<x>7.28067900210627</x>
-		<y>7.35964481175522</y>
-		<z>0.196104580841311</z>
+		<x>-19.2020370850726</x>
+		<y>-0.97251130655355</y>
+		<z>-1.05584339513635</z>
 	</similarity>
 	<similarity id="1t0fD">
 		<pdbid>1t0fD</pdbid>
-		<x>-8.63939000249008</x>
-		<y>-8.77476715753495</y>
-		<z>-4.74328184354086</z>
+		<x>-9.39270996435502</x>
+		<y>0.0261892372683074</y>
+		<z>-4.83121527908085</z>
 	</similarity>
 	<similarity id="1th5A">
 		<pdbid>1th5A</pdbid>
-		<x>0.289659015445581</x>
-		<y>0.270143969194276</y>
-		<z>5.28232946087105</z>
+		<x>-0.925769964283472</x>
+		<y>-0.121512773448483</y>
+		<z>5.98917039926966</z>
 	</similarity>
 	<similarity id="1u7jA">
 		<pdbid>1u7jA</pdbid>
-		<x>7.00502865992735</x>
-		<y>7.04976174414497</y>
-		<z>0.963445993626821</z>
+		<x>7.40103759158103</x>
+		<y>-0.222178793201924</y>
+		<z>0.830786861181924</z>
 	</similarity>
 	<similarity id="1v92A">
 		<pdbid>1v92A</pdbid>
-		<x>7.45015142329873</x>
-		<y>7.50832855731022</y>
-		<z>-0.279374446024202</z>
+		<x>7.72677010008051</x>
+		<y>-1.61585167865374</y>
+		<z>0.378959445648868</z>
+	</similarity>
+	<similarity id="1v98A">
+		<pdbid>1v98A</pdbid>
+		<x>0.0157872747424302</x>
+		<y>1.23049235326077</y>
+		<z>1.09315980154459</z>
+	</similarity>
+	<similarity id="1veuB">
+		<pdbid>1veuB</pdbid>
+		<x>1.70549135069518</x>
+		<y>3.97573959618256</y>
+		<z>0.110435329778816</z>
 	</similarity>
 	<similarity id="1wh9A">
 		<pdbid>1wh9A</pdbid>
-		<x>0.559708373765495</x>
-		<y>0.505918559961681</y>
-		<z>3.70813386223817</z>
+		<x>-0.0496131264464487</x>
+		<y>0.694673032229866</y>
+		<z>3.95383526282034</z>
+	</similarity>
+	<similarity id="1wmiA">
+		<pdbid>1wmiA</pdbid>
+		<x>-3.16121191859346</x>
+		<y>-1.51665247769013</y>
+		<z>-1.30672890722448</z>
 	</similarity>
 	<similarity id="1wmvA">
 		<pdbid>1wmvA</pdbid>
-		<x>-18.1163956975747</x>
-		<y>-17.7883337771583</y>
-		<z>0.414242251159242</z>
+		<x>-20.7643610102998</x>
+		<y>2.39344651875882</y>
+		<z>0.802867001693192</z>
 	</similarity>
 	<similarity id="1wudB">
 		<pdbid>1wudB</pdbid>
-		<x>4.75776725040353</x>
-		<y>4.83144874250504</y>
-		<z>-0.104816498809109</z>
+		<x>4.55294077489582</x>
+		<y>-0.0908166937102644</y>
+		<z>-0.0278354422095507</z>
+	</similarity>
+	<similarity id="1xb0B">
+		<pdbid>1xb0B</pdbid>
+		<x>-4.65736767021662</x>
+		<y>-1.33583797767561</y>
+		<z>-3.74857310164039</z>
 	</similarity>
 	<similarity id="1xhjA">
 		<pdbid>1xhjA</pdbid>
-		<x>2.73685216675209</x>
-		<y>2.75873955051746</y>
-		<z>2.3152505171014</z>
+		<x>1.74035395370315</x>
+		<y>-0.67239441960422</y>
+		<z>2.99420189241646</z>
 	</similarity>
 	<similarity id="1y4mC">
 		<pdbid>1y4mC</pdbid>
-		<x>0.985089543412738</x>
-		<y>0.963903081653987</y>
-		<z>1.28973077200701</z>
+		<x>0.74516405202487</x>
+		<y>-0.481621015383034</y>
+		<z>0.976327761524051</z>
 	</similarity>
 	<similarity id="1y7yB">
 		<pdbid>1y7yB</pdbid>
-		<x>5.50210765842105</x>
-		<y>5.50478255929003</y>
-		<z>-0.529035103385439</z>
-	</similarity>
-	<similarity id="1ywwA">
-		<pdbid>1ywwA</pdbid>
-		<x>5.0650575848669</x>
-		<y>5.02188845157176</y>
-		<z>0.415695299065278</z>
+		<x>5.68876244241649</x>
+		<y>-2.05354175041605</y>
+		<z>-0.452823731166968</z>
 	</similarity>
 	<similarity id="1z09A">
 		<pdbid>1z09A</pdbid>
-		<x>1.16419081856168</x>
-		<y>1.08716515230336</y>
-		<z>0.738345667194639</z>
+		<x>0.275258021252135</x>
+		<y>2.8543327985246</y>
+		<z>0.51188930510581</z>
 	</similarity>
 	<similarity id="2a2lD">
 		<pdbid>2a2lD</pdbid>
-		<x>3.86522799161532</x>
-		<y>4.01210165772437</y>
-		<z>0.084681088073594</z>
-	</similarity>
-	<similarity id="2b68A">
-		<pdbid>2b68A</pdbid>
-		<x>-11.159202214528</x>
-		<y>-11.3718645439384</y>
-		<z>1.80965164282902</z>
+		<x>3.68308513791226</x>
+		<y>4.29376077494926</y>
+		<z>0.383496516805335</z>
 	</similarity>
 	<similarity id="2b7eA">
 		<pdbid>2b7eA</pdbid>
-		<x>5.30735444510954</x>
-		<y>5.15140538973533</y>
-		<z>0.0436223264848929</z>
+		<x>5.36287107088978</x>
+		<y>-2.38159348541628</y>
+		<z>0.0465638973407192</z>
 	</similarity>
 	<similarity id="2b9sB">
 		<pdbid>2b9sB</pdbid>
-		<x>0.0819377857733418</x>
-		<y>0.0571850181332804</y>
-		<z>-1.64327685765029</z>
+		<x>-0.48857025258454</x>
+		<y>-0.901371094846512</y>
+		<z>-1.74874728724097</z>
 	</similarity>
 	<similarity id="2bw3B">
 		<pdbid>2bw3B</pdbid>
-		<x>2.26581939306374</x>
-		<y>2.20467070399707</y>
-		<z>-1.0707009147893</z>
+		<x>1.7162800322965</x>
+		<y>0.797685208607268</y>
+		<z>-0.472000426457955</z>
 	</similarity>
 	<similarity id="2c52B">
 		<pdbid>2c52B</pdbid>
-		<x>-4.19713235158741</x>
-		<y>-4.43384996607774</y>
-		<z>0.455467439161906</z>
+		<x>-5.62407464032455</x>
+		<y>-3.24511135436053</y>
+		<z>1.17484162082416</z>
 	</similarity>
 	<similarity id="2c5rD">
 		<pdbid>2c5rD</pdbid>
-		<x>4.27801409889808</x>
-		<y>4.19999034136623</y>
-		<z>-1.87006483376264</z>
+		<x>4.14867314325403</x>
+		<y>-1.43139213604436</y>
+		<z>-1.79147890897483</z>
 	</similarity>
 	<similarity id="2d9sB">
 		<pdbid>2d9sB</pdbid>
-		<x>2.89660823654332</x>
-		<y>2.75654765016756</y>
-		<z>0.796504898043824</z>
+		<x>2.35753256413879</x>
+		<y>-4.24006449496798</y>
+		<z>0.978470698092575</z>
 	</similarity>
 	<similarity id="2dmvA">
 		<pdbid>2dmvA</pdbid>
-		<x>-18.1419163447497</x>
-		<y>-17.8003777135542</y>
-		<z>0.244653103863489</z>
+		<x>-20.3540919536475</x>
+		<y>2.96404975249536</y>
+		<z>0.2297337237544</z>
 	</similarity>
 	<similarity id="2do6A">
 		<pdbid>2do6A</pdbid>
-		<x>2.65888182717686</x>
-		<y>2.50462386633445</y>
-		<z>0.539786419684061</z>
+		<x>2.35254321876104</x>
+		<y>-4.08554613650742</y>
+		<z>0.736537546363502</z>
 	</similarity>
 	<similarity id="2doeA">
 		<pdbid>2doeA</pdbid>
-		<x>3.1100734985088</x>
-		<y>2.92766420195961</y>
-		<z>0.166649458796124</z>
+		<x>2.02579089206392</x>
+		<y>-4.76460381502893</y>
+		<z>0.753470365798659</z>
 	</similarity>
 	<similarity id="2dyjA">
 		<pdbid>2dyjA</pdbid>
-		<x>2.95994495330268</x>
-		<y>3.06931006670734</y>
-		<z>1.3946966325746</z>
+		<x>2.09898581796019</x>
+		<y>1.54591377135812</y>
+		<z>1.54706902618617</z>
 	</similarity>
 	<similarity id="2e30B">
 		<pdbid>2e30B</pdbid>
-		<x>-1.87219703512181</x>
-		<y>-1.82408299860682</y>
-		<z>1.01816823004184</z>
+		<x>-2.85662809062586</x>
+		<y>-0.167803025080269</y>
+		<z>1.20675807519093</z>
 	</similarity>
 	<similarity id="2eq3A">
 		<pdbid>2eq3A</pdbid>
-		<x>-13.4230154163188</x>
-		<y>-13.4081981560232</y>
-		<z>0.255645069239977</z>
-	</similarity>
-	<similarity id="2f44B">
-		<pdbid>2f44B</pdbid>
-		<x>4.71164193898599</x>
-		<y>4.65565566645618</y>
-		<z>-1.10870656152308</z>
-	</similarity>
-	<similarity id="2fomA">
-		<pdbid>2fomA</pdbid>
-		<x>-15.7847922422445</x>
-		<y>-16.0542461768645</y>
-		<z>-0.395932893441138</z>
-	</similarity>
-	<similarity id="2gjhA">
-		<pdbid>2gjhA</pdbid>
-		<x>-3.31104414375916</x>
-		<y>-3.1674092600913</y>
-		<z>2.52364823033503</z>
+		<x>-15.5321946169097</x>
+		<y>-0.899663462361213</y>
+		<z>0.424053517541487</z>
 	</similarity>
 	<similarity id="2hepA">
 		<pdbid>2hepA</pdbid>
-		<x>8.12239609710049</x>
-		<y>8.16487549132419</y>
-		<z>1.21476522154759</z>
+		<x>8.46888741507274</x>
+		<y>-0.273981466745276</y>
+		<z>1.81838080977801</z>
 	</similarity>
 	<similarity id="2hh3A">
 		<pdbid>2hh3A</pdbid>
-		<x>3.17058557947903</x>
-		<y>3.18941290819495</y>
-		<z>-1.08948209937812</z>
+		<x>2.84867858514698</x>
+		<y>0.598008402965557</y>
+		<z>-1.72114282946142</z>
 	</similarity>
 	<similarity id="2izyA">
 		<pdbid>2izyA</pdbid>
-		<x>6.53423307812156</x>
-		<y>6.43559418277487</y>
-		<z>-0.312746069309578</z>
+		<x>6.72348238812314</x>
+		<y>-0.42315368567634</y>
+		<z>-0.203031096971065</z>
 	</similarity>
 	<similarity id="2j6dA">
 		<pdbid>2j6dA</pdbid>
-		<x>-16.5719629579459</x>
-		<y>-16.4553355814019</y>
-		<z>-0.148587061826309</z>
+		<x>-19.0918280837579</x>
+		<y>1.20626627679771</y>
+		<z>-0.43602849042129</z>
 	</similarity>
 	<similarity id="2jnhA">
 		<pdbid>2jnhA</pdbid>
-		<x>5.78464424672807</x>
-		<y>5.74521780449299</y>
-		<z>-0.474751337043137</z>
+		<x>5.51574697310766</x>
+		<y>-2.75516944795678</y>
+		<z>-0.0597002209234505</z>
 	</similarity>
 	<similarity id="2jnvA">
 		<pdbid>2jnvA</pdbid>
-		<x>2.80957836684646</x>
-		<y>2.83558820237136</y>
-		<z>2.93655458535062</z>
+		<x>1.92160803490793</x>
+		<y>-0.845982868239097</y>
+		<z>3.07920956210433</z>
 	</similarity>
 	<similarity id="2jpiA">
 		<pdbid>2jpiA</pdbid>
-		<x>-4.25925701367248</x>
-		<y>-4.22738375939474</y>
-		<z>1.66033579489645</z>
+		<x>-5.60140302508264</x>
+		<y>0.908314487127815</y>
+		<z>1.46300916744298</z>
 	</similarity>
 	<similarity id="2jucA">
 		<pdbid>2jucA</pdbid>
-		<x>3.99225829380351</x>
-		<y>3.77266158359309</y>
-		<z>0.946653425071211</z>
+		<x>3.710058421077</x>
+		<y>-3.95953638825073</y>
+		<z>1.63803111767524</z>
 	</similarity>
 	<similarity id="2jujA">
 		<pdbid>2jujA</pdbid>
-		<x>3.83790754284373</x>
-		<y>3.80007230999724</y>
-		<z>-1.41500747907834</z>
+		<x>3.40771136445976</x>
+		<y>-3.44873818389856</y>
+		<z>-0.637518577798857</z>
+	</similarity>
+	<similarity id="2k31A">
+		<pdbid>2k31A</pdbid>
+		<x>-3.96837644916759</x>
+		<y>3.02709550023777</y>
+		<z>0.228277438929314</z>
 	</similarity>
 	<similarity id="2k7iA">
 		<pdbid>2k7iA</pdbid>
-		<x>-8.69194553774981</x>
-		<y>-8.48739130241816</y>
-		<z>0.85751897415927</z>
+		<x>-10.1799234971899</x>
+		<y>4.59733924358436</y>
+		<z>1.211859218984</z>
 	</similarity>
 	<similarity id="2k85A">
 		<pdbid>2k85A</pdbid>
-		<x>5.48762108641642</x>
-		<y>5.36339418723709</y>
-		<z>0.676646045854953</z>
-	</similarity>
-	<similarity id="2khhA">
-		<pdbid>2khhA</pdbid>
-		<x>3.27701816260878</x>
-		<y>3.18870710801737</y>
-		<z>0.0225995229035363</z>
+		<x>5.25135573888307</x>
+		<y>-2.95410057783069</y>
+		<z>1.02830638217649</z>
 	</similarity>
 	<similarity id="2kngA">
 		<pdbid>2kngA</pdbid>
-		<x>2.20641476080632</x>
-		<y>2.19535975291762</y>
-		<z>-1.20361156608762</z>
+		<x>1.97638461429406</x>
+		<y>-1.14290822581934</y>
+		<z>-1.15450695090772</z>
 	</similarity>
 	<similarity id="2koeA">
 		<pdbid>2koeA</pdbid>
-		<x>3.36870940589487</x>
-		<y>3.39117515475775</y>
-		<z>2.01727228874035</z>
+		<x>2.98947033349674</x>
+		<y>-0.180841543944771</y>
+		<z>1.71820073707329</z>
 	</similarity>
 	<similarity id="2ksoA">
 		<pdbid>2ksoA</pdbid>
-		<x>4.75145528085506</x>
-		<y>4.69922652256107</y>
-		<z>-2.30715198963861</z>
+		<x>4.42068043048324</x>
+		<y>-0.886410217975375</y>
+		<z>-2.22528784010566</z>
 	</similarity>
 	<similarity id="2kvqE">
 		<pdbid>2kvqE</pdbid>
-		<x>-1.71914815867879</x>
-		<y>-1.59273200019912</y>
-		<z>-0.11380307981618</z>
+		<x>-2.3488762357929</x>
+		<y>0.243790805492176</y>
+		<z>-0.501202727672928</z>
 	</similarity>
 	<similarity id="2kwiB">
 		<pdbid>2kwiB</pdbid>
-		<x>6.20285505024628</x>
-		<y>6.17443477069744</y>
-		<z>0.619635679151988</z>
+		<x>6.50541017112846</x>
+		<y>-0.203185750426477</y>
+		<z>0.518601734048333</z>
 	</similarity>
 	<similarity id="2l0jB">
 		<pdbid>2l0jB</pdbid>
-		<x>6.01537656704282</x>
-		<y>6.05234774824164</y>
-		<z>1.10493824554963</z>
+		<x>5.97120318133113</x>
+		<y>0.656204777930501</y>
+		<z>1.202018929087</z>
 	</similarity>
 	<similarity id="2l4jA">
 		<pdbid>2l4jA</pdbid>
-		<x>-18.3245390083836</x>
-		<y>-18.0409544012688</y>
-		<z>0.27125919690883</z>
+		<x>-20.971762721423</x>
+		<y>1.63193909204453</y>
+		<z>0.488272317739912</z>
 	</similarity>
 	<similarity id="2lmcA">
 		<pdbid>2lmcA</pdbid>
-		<x>-5.40263282067769</x>
-		<y>-5.33251585819481</y>
-		<z>0.133497934327411</z>
+		<x>-6.08425450835481</x>
+		<y>2.19362315032263</y>
+		<z>-0.0896868607790477</z>
 	</similarity>
 	<similarity id="2oo9C">
 		<pdbid>2oo9C</pdbid>
-		<x>8.0919935048674</x>
-		<y>8.13259744361899</y>
-		<z>-0.383571158974578</z>
+		<x>8.21214127513595</x>
+		<y>-3.09904437376227</y>
+		<z>-0.0231384202538733</z>
 	</similarity>
 	<similarity id="2qdoC">
 		<pdbid>2qdoC</pdbid>
-		<x>5.00787686446901</x>
-		<y>4.96007813173873</y>
-		<z>-1.48020078142092</z>
-	</similarity>
-	<similarity id="2vxdA">
-		<pdbid>2vxdA</pdbid>
-		<x>5.32906865509484</x>
-		<y>5.25807214505345</y>
-		<z>0.509054511110008</z>
+		<x>5.13744399987709</x>
+		<y>1.54520417668563</y>
+		<z>-1.10146024725195</z>
 	</similarity>
 	<similarity id="2y9tA">
 		<pdbid>2y9tA</pdbid>
-		<x>2.35094330319509</x>
-		<y>2.35750719655946</y>
-		<z>-3.18958583354327</z>
+		<x>1.19182405319004</x>
+		<y>-2.11639785273644</y>
+		<z>-2.92180182760296</z>
 	</similarity>
 	<similarity id="2yf2D">
 		<pdbid>2yf2D</pdbid>
-		<x>7.18079080244654</x>
-		<y>7.21880963624088</y>
-		<z>-0.0225442704119621</z>
+		<x>7.76061373170966</x>
+		<y>2.27371602050885</y>
+		<z>-0.52991539548527</z>
+	</similarity>
+	<similarity id="2z6cB">
+		<pdbid>2z6cB</pdbid>
+		<x>-3.19317195227493</x>
+		<y>0.560115508677732</y>
+		<z>-2.72348203978697</z>
 	</similarity>
 	<similarity id="2zdjA">
 		<pdbid>2zdjA</pdbid>
-		<x>-10.6739512064879</x>
-		<y>-10.7422985921896</y>
-		<z>-0.87312832522483</z>
+		<x>-11.7913723935984</x>
+		<y>2.10057540133568</y>
+		<z>-1.09786871055515</z>
+	</similarity>
+	<similarity id="3b7hA">
+		<pdbid>3b7hA</pdbid>
+		<x>4.06634465864308</x>
+		<y>-2.43636169669667</y>
+		<z>-0.220366072278493</z>
 	</similarity>
 	<similarity id="3bd1C">
 		<pdbid>3bd1C</pdbid>
-		<x>3.61514384537351</x>
-		<y>3.6074587654087</y>
-		<z>-1.83112962465821</z>
+		<x>3.33893182353446</x>
+		<y>-2.91127854494265</y>
+		<z>-1.41325944817672</z>
 	</similarity>
 	<similarity id="3bhpB">
 		<pdbid>3bhpB</pdbid>
-		<x>8.27504948999068</x>
-		<y>8.27995579243483</y>
-		<z>-0.766132966281986</z>
+		<x>8.74215786683227</x>
+		<y>0.767478029248491</y>
+		<z>-0.205399149205214</z>
 	</similarity>
 	<similarity id="3bidD">
 		<pdbid>3bidD</pdbid>
-		<x>-8.05721837472498</x>
-		<y>-7.71859414166089</y>
-		<z>0.618257594143423</z>
+		<x>-9.50920679164547</x>
+		<y>7.10294365953664</y>
+		<z>0.624715947266279</z>
+	</similarity>
+	<similarity id="3dmoC">
+		<pdbid>3dmoC</pdbid>
+		<x>-0.0592758698481735</x>
+		<y>2.84004813285014</y>
+		<z>1.92086409490646</z>
 	</similarity>
 	<similarity id="3e21A">
 		<pdbid>3e21A</pdbid>
-		<x>6.64053888948347</x>
-		<y>6.58797397442205</y>
-		<z>-0.785921667871284</z>
+		<x>6.58540173013961</x>
+		<y>-3.15756973847155</y>
+		<z>-0.600288994829433</z>
+	</similarity>
+	<similarity id="3eeaB">
+		<pdbid>3eeaB</pdbid>
+		<x>0.0849274625592643</x>
+		<y>3.30501781391502</y>
+		<z>-1.46182367697926</z>
+	</similarity>
+	<similarity id="3eusA">
+		<pdbid>3eusA</pdbid>
+		<x>4.37506358472779</x>
+		<y>-2.56323164346705</y>
+		<z>-1.71775285396148</z>
 	</similarity>
 	<similarity id="3fpvA">
 		<pdbid>3fpvA</pdbid>
-		<x>5.07267131963246</x>
-		<y>4.94420455130706</y>
-		<z>-0.172519821110956</z>
+		<x>5.04780066093622</x>
+		<y>3.48073504549957</y>
+		<z>-0.0856476185810596</z>
 	</similarity>
 	<similarity id="3g5gG">
 		<pdbid>3g5gG</pdbid>
-		<x>5.63482786185493</x>
-		<y>5.64642912584818</y>
-		<z>-1.45679641485264</z>
+		<x>5.96692568392326</x>
+		<y>-1.29722111293922</y>
+		<z>-1.34560393115908</z>
 	</similarity>
 	<similarity id="3huiA">
 		<pdbid>3huiA</pdbid>
-		<x>-8.09335754264416</x>
-		<y>-7.87007528395375</y>
-		<z>-3.27526502536153</z>
+		<x>-9.78523368175172</x>
+		<y>1.87719110190919</y>
+		<z>-3.20544295121647</z>
 	</similarity>
 	<similarity id="3idwA">
 		<pdbid>3idwA</pdbid>
-		<x>4.87026230095495</x>
-		<y>4.8274601063753</y>
-		<z>-0.867763396108212</z>
+		<x>4.70235271822521</x>
+		<y>-1.56370302611962</y>
+		<z>-0.826835370621948</z>
+	</similarity>
+	<similarity id="3ijfX">
+		<pdbid>3ijfX</pdbid>
+		<x>-1.63607259294532</x>
+		<y>2.84339018506172</y>
+		<z>0.621199940263783</z>
 	</similarity>
 	<similarity id="3izbT">
 		<pdbid>3izbT</pdbid>
-		<x>2.53465756574343</x>
-		<y>2.49928035565547</y>
-		<z>0.429945188897135</z>
+		<x>1.88119675844023</x>
+		<y>-0.349761591702504</y>
+		<z>1.02263004131364</z>
 	</similarity>
 	<similarity id="3k1rB">
 		<pdbid>3k1rB</pdbid>
-		<x>4.46244162885454</x>
-		<y>4.45358159944636</y>
-		<z>-3.47625105880926</z>
-	</similarity>
-	<similarity id="3kupB">
-		<pdbid>3kupB</pdbid>
-		<x>-7.2273089755238</x>
-		<y>-7.04833931707909</y>
-		<z>-0.915583641604216</z>
+		<x>3.70314465287486</x>
+		<y>-1.28867609204783</y>
+		<z>-3.31179388427666</z>
 	</similarity>
 	<similarity id="3kxeB">
 		<pdbid>3kxeB</pdbid>
-		<x>2.64100556742678</x>
-		<y>2.65268618682374</y>
-		<z>-0.237252037330428</z>
+		<x>1.31107551043991</x>
+		<y>-2.57302700397923</y>
+		<z>0.033057520239686</z>
 	</similarity>
 	<similarity id="3kyeB">
 		<pdbid>3kyeB</pdbid>
-		<x>2.25134300038216</x>
-		<y>2.22517469982925</y>
-		<z>1.37590315535503</z>
+		<x>2.08399897427414</x>
+		<y>3.85351936460427</y>
+		<z>0.0260261452212078</z>
 	</similarity>
 	<similarity id="3l32A">
 		<pdbid>3l32A</pdbid>
-		<x>9.59398356989487</x>
-		<y>9.71483082196357</y>
-		<z>0.396117162910409</z>
+		<x>10.2662240128548</x>
+		<y>0.838216370656961</y>
+		<z>0.493266656607631</z>
 	</similarity>
 	<similarity id="3l7hC">
 		<pdbid>3l7hC</pdbid>
-		<x>1.2300711116391</x>
-		<y>1.18670091103177</y>
-		<z>-0.199416215570454</z>
-	</similarity>
-	<similarity id="3neqA">
-		<pdbid>3neqA</pdbid>
-		<x>-16.7216103201906</x>
-		<y>-17.1210473084147</y>
-		<z>-0.638288312870096</z>
+		<x>0.7609348839779</x>
+		<y>3.29814973931545</y>
+		<z>-0.93670889436983</z>
 	</similarity>
 	<similarity id="3ntwA">
 		<pdbid>3ntwA</pdbid>
-		<x>6.22099594838286</x>
-		<y>6.17862609833782</y>
-		<z>-0.108822854380434</z>
+		<x>6.04162879264184</x>
+		<y>-2.23596723528008</y>
+		<z>0.419440011521727</z>
 	</similarity>
 	<similarity id="3o6qB">
 		<pdbid>3o6qB</pdbid>
-		<x>-3.67680202905713</x>
-		<y>-3.59641282903156</y>
-		<z>-0.23894039994336</z>
+		<x>-4.67772918984048</x>
+		<y>0.689084128750721</y>
+		<z>0.0221282712394305</z>
+	</similarity>
+	<similarity id="3pt3B">
+		<pdbid>3pt3B</pdbid>
+		<x>0.24760374388917</x>
+		<y>-0.873542917018256</y>
+		<z>-0.189896635551176</z>
 	</similarity>
 	<similarity id="3r2nC">
 		<pdbid>3r2nC</pdbid>
-		<x>-0.0944890856496468</x>
-		<y>0.169893800928065</y>
-		<z>0.669221314464904</z>
+		<x>-1.0203792326518</x>
+		<y>2.76808033776455</y>
+		<z>0.793379674069916</z>
+	</similarity>
+	<similarity id="3rfbA">
+		<pdbid>3rfbA</pdbid>
+		<x>1.66258420388942</x>
+		<y>-0.44431654197738</y>
+		<z>1.91685136223431</z>
 	</similarity>
 	<similarity id="3t12C">
 		<pdbid>3t12C</pdbid>
-		<x>2.51711649501116</x>
-		<y>2.58268015174761</y>
-		<z>0.370832983007957</z>
+		<x>2.34422615693247</x>
+		<y>4.25397334936604</y>
+		<z>-0.69070791763644</z>
 	</similarity>
 	<similarity id="3v1cB">
 		<pdbid>3v1cB</pdbid>
-		<x>7.0973064888863</x>
-		<y>7.1402029721134</y>
-		<z>-0.189149639618002</z>
+		<x>7.2578571992831</x>
+		<y>-0.236400900519477</y>
+		<z>0.219362854555751</z>
 	</similarity>
 	<similarity id="4a9zC">
 		<pdbid>4a9zC</pdbid>
-		<x>0.34290383340458</x>
-		<y>0.346203897010583</y>
-		<z>0.933380698985882</z>
+		<x>-0.253740055410041</x>
+		<y>-0.929765225777655</y>
+		<z>0.574667295057384</z>
 	</similarity>
 </similarities>
 </query>
