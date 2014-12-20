@@ -1,9 +1,7 @@
 package Similarity::Compare;
-
 use strict;
 use warnings;
 use POSIX qw(EXIT_SUCCESS EXIT_FAILURE);
-
 use FindBin;
 use lib "$FindBin::Bin/salamiServer";
 use Salamisrvini;
@@ -31,7 +29,6 @@ use vars qw (
 );
 
 # ----------------------- set_params   ------------------------------
-
 sub set_params () {
   *sw1_pgap_open  = \1.07;
   *sw1_pgap_widen = \0.855;
@@ -48,7 +45,6 @@ sub set_params () {
 # On error, return 0.0.
 sub get_dme_thresh ($ $ $) {
   my ( $pair_set, $c1, $c2 ) = @_;
-
   my $model = make_model( $pair_set, coord_get_seq($c1), $c2 );
   if ( !$model ) {    # There is no error message here, since the C code
     return 0.0;
@@ -71,7 +67,6 @@ sub get_dme_thresh ($ $ $) {
 # Args vec1, vec2, coord1, coord2
 sub compare_prot ($ $ $ $) {
   my ( $v1, $v2, $c1, $c2 ) = @_;
-
   use vars qw ($tiny);
   *tiny = \0.00001;
   my $len_1  = coord_size($c1);
@@ -80,18 +75,13 @@ sub compare_prot ($ $ $ $) {
   if ( !score_pvec( $matrix, $v1, $v2 ) ) {
     return undef;
   }
-
   my $smallsize = ( $len_1 <= $len_2 ? $len_1 : $len_2 );
-
   my $scaler = $m_s_scale * $smallsize * 0.001;
-
   $matrix = score_mat_shift( $matrix, $m_shift + $scaler );
-
   my $pair_set = score_mat_sum_smpl(
     my $crap_mat,   $matrix,         $sw1_pgap_open, $sw1_pgap_widen,
     $sw1_qgap_open, $sw1_qgap_widen, $S_AND_W
   );
-
   my $f_dme = get_dme_thresh( $pair_set, $c1, $c2 );
   if ( $f_dme < $tiny ) {
     return 0.0001;
@@ -118,14 +108,54 @@ sub check_prot ($) {
   return EXIT_SUCCESS;
 }
 
-# ----------------------- usage   -----------------------------------
-sub usage () {
-  print STDERR "$0: ref1,ref2,..  prot1,prot2,prot3\n";
-}
-
 sub name {
   my ($id) = @_;
   return coord_name($id);
+}
+
+# ----------------------- get_path  ---------------------------------
+# Copy-paste from salami_2.pl
+# We have a filename and a list of directories where it could
+# be. Return the path if we can find it, otherwise return undef.
+sub get_path (\@ $) {
+  my ( $dirs, $fname ) = @_;
+  foreach my $d (@$dirs) {
+    my $p = "$d/$fname";
+    if ( -f $p ) {
+      return $p;
+    }
+  }
+  return undef;
+}
+
+# Method to get output folder
+# using global var with
+# folders or global var with a single one
+sub get_path_output ($) {
+  my ($file) = @_;
+  if ( defined @DFLT_STRUCT_DIRS ) {
+    return get_path( @DFLT_STRUCT_DIRS, $file );
+  }
+  if ( defined $OUTPUT_BIN_DIR ) {
+    return get_path( ($OUTPUT_BIN_DIR), $file );
+  }
+  print STDERR ": No global output folder has been defined";
+  return (EXIT_FAILURE);
+}
+
+# Method to get verctor folder
+# using global var with
+# folders or global var with a single one
+sub get_path_vector ($) {
+  my ($file) = @_;
+  if ( defined @PVEC_CA_DIRS ) {
+    return get_path( @PVEC_CA_DIRS, $file );
+  }
+  if ( defined $PVEC_STRCT_DIR ) {
+    return get_path( ($PVEC_STRCT_DIR), $file );
+  }
+  print STDERR ": No global vector folder has been defined";
+  return (EXIT_FAILURE);
 }
 
 #
@@ -133,24 +163,21 @@ sub name {
 #
 sub all_to_all (\@\@) {
   my ( $proteins_ref, $proteins_test ) = @_;
-
   my @proteins_ref  = @$proteins_ref;
   my @proteins_test = @$proteins_test;
-  
   use Getopt::Std;
-
   my (%opts);
   set_params();
   my ( @ref_c, @ref_v, @test_c, @test_v );
 
   # Get all the vector files and coordinates read up.
   for ( my $i = 0 ; $i < @proteins_ref ; $i++ ) {
-    $ref_c[$i] = coord_read("$OUTPUT_BIN_DIR/$proteins_ref[$i].bin");
-    $ref_v[$i] = prob_vec_read("$PVEC_STRCT_DIR/$proteins_ref[$i].vec");
+    $ref_c[$i] = coord_read( get_path_output("$proteins_ref[$i].bin") );
+    $ref_v[$i] = prob_vec_read( get_path_vector("$proteins_ref[$i].vec") );
   }
   for ( my $i = 0 ; $i < @proteins_test ; $i++ ) {
-    $test_c[$i] = coord_read("$OUTPUT_BIN_DIR/$proteins_test[$i].bin");
-    $test_v[$i] = prob_vec_read("$PVEC_STRCT_DIR/$proteins_test[$i].vec");
+    $test_c[$i] = coord_read( get_path_output("$proteins_test[$i].bin") );
+    $test_v[$i] = prob_vec_read( get_path_vector("$proteins_test[$i].vec") );
   }
 
   #   We now have all the coords and vectors that we will need.
@@ -171,5 +198,4 @@ sub all_to_all (\@\@) {
   }
   return @q_scr;
 }
-
 1;
