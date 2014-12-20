@@ -139,8 +139,6 @@ sub get_path (\@ $) {
 # folders or global var with a single one
 sub get_path_output ($) {
   my ($file) = @_;
-  use $OUTPUT_BIN_DIR;
-  use $DFLT_STRUCT_DIRS;
   if ( defined($DFLT_STRUCT_DIRS) ) {
     return get_path( @DFLT_STRUCT_DIRS, $file );
   }
@@ -156,8 +154,6 @@ sub get_path_output ($) {
 # folders or global var with a single one
 sub get_path_vector ($) {
   my ($file) = @_;
-  use $PVEC_CA_DIRS;
-  use $PVEC_STRCT_DIR;
   if ( defined($PVEC_CA_DIRS) ) {
     return get_path( @PVEC_CA_DIRS, $file );
   }
