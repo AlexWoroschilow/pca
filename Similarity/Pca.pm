@@ -20,17 +20,8 @@ sub pca ($ $) {
   my $matrixP;
   my $matrixT;
   ( my $n, my $m ) = $matrix->size;
-
-  #  my $pc = $n;
-  #  if ( $pc > $m ) {
-  #    $pc = $m;
-  #  }
   my $threshold = 0.00001;
   foreach my $i ( 0 ... ( $pc - 1 ) ) {
-
-    #P1 = rand(X_c, 1);
-    #T1 = X * P1;
-    #d0 = T1'*T1;
     my $t  = $matrix->slice($i);
     my $P1 = $t->clone;
     my $T1 = $matrix->transpose->multiply($P1);
@@ -41,18 +32,17 @@ sub pca ($ $) {
       $P1 = $P1->normalize;
       $T1 = $matrix->multiply($P1);
       $T1 = $T1->multiply( $P1->transpose->multiply($P1)->invert );
-
-      #d = T1' * T1;
       $d1 = $T1->transpose->multiply($T1);
     } while ( $d1->absolute - $d0->absolute > $threshold );
     if ( $i == 0 ) {
       $matrixP = $P1->clone;
       $matrixT = $T1->clone;
-      next;
     }
-    $matrixP = $matrixP->concat($P1);
-    $matrixT = $matrixT->concat($T1);
-    $matrix  = $matrix->subtract( $T1->multiply( $P1->transpose ) );
+    else {
+      $matrixP = $matrixP->concat($P1);
+      $matrixT = $matrixT->concat($T1);
+    }
+    $matrix = $matrix->subtract( $T1->multiply( $P1->transpose ) );
   }
   return @{ [ $raw, $matrix, $matrixP, $matrixT ] };
 }
