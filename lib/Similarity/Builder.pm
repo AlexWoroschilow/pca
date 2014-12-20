@@ -4,7 +4,7 @@ use base Exporter;
 use Text::Xslate;
 use lib "$FindBin::Bin/lib/";
 use Similarity::Pca;
-use Similarity::Compare;
+#use Similarity::Compare;
 
 sub new () {
   my ( $class, $args ) = @_;
@@ -25,7 +25,7 @@ sub all_to_all () {
 
   # Use script from Andrew Torda
   my (@matrix) = Similarity::Compare::all_to_all( 
-    $self->{ref1}, $self->{ref2} 
+    @{$self->{ref1}}, @{$self->{ref2}} 
   );
 
   # Apply PCA to given matrix
