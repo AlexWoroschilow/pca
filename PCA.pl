@@ -64,12 +64,12 @@ $pca = new Similarity::Pca({
   pc     => 3
 });
 
-#if ( $pca->pca() ) {
-#  $pca->{r}->print("-->Raw:\n");
-#  $pca->{m}->print("-->Rest:\n");
-#  $pca->{p}->print("Matrix P: \n");
-#  $pca->{t}->print("Matrix T: \n");
-#}
+if ( $pca->pca() ) {
+  $pca->{r}->print("-->Raw:\n");
+  $pca->{m}->print("-->Rest:\n");
+  $pca->{p}->print("Matrix P: \n");
+  $pca->{t}->print("Matrix T: \n");
+}
 
 #my $result = {};
 #my ( $m, $n ) = $matrixT->size;
