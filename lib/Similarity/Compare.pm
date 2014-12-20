@@ -133,10 +133,10 @@ sub get_path (\@ $) {
 # folders or global var with a single one
 sub get_path_output ($) {
   my ($file) = @_;
-  if ( defined @DFLT_STRUCT_DIRS ) {
+  if ( @DFLT_STRUCT_DIRS ) {
     return get_path( @DFLT_STRUCT_DIRS, $file );
   }
-  if ( defined $OUTPUT_BIN_DIR ) {
+  if ( $OUTPUT_BIN_DIR ) {
     return get_path( ($OUTPUT_BIN_DIR), $file );
   }
   print STDERR ": No global output folder has been defined";
@@ -148,10 +148,10 @@ sub get_path_output ($) {
 # folders or global var with a single one
 sub get_path_vector ($) {
   my ($file) = @_;
-  if ( defined @PVEC_CA_DIRS ) {
+  if ( @PVEC_CA_DIRS ) {
     return get_path( @PVEC_CA_DIRS, $file );
   }
-  if ( defined $PVEC_STRCT_DIR ) {
+  if ( $PVEC_STRCT_DIR ) {
     return get_path( ($PVEC_STRCT_DIR), $file );
   }
   print STDERR ": No global vector folder has been defined";
