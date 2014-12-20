@@ -27,6 +27,12 @@ use vars qw (
   $m_s_scale
   $m_shift
 );
+use vars qw(
+  $OUTPUT_BIN_DIR
+  $DFLT_STRUCT_DIRS
+  $PVEC_CA_DIRS
+  $PVEC_STRCT_DIR
+);
 
 # ----------------------- set_params   ------------------------------
 sub set_params () {
