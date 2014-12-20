@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 use FindBin;    # locate this script
 use lib "$FindBin::Bin/lib/";
+
 use Similarity::Pca;
 my @raw1 = (
   [ 198, 92, -1, 48, 48, 45, 420, 115, -1, 98, -1, 100 ],
@@ -63,12 +64,12 @@ $pca = new Similarity::Pca({
   pc     => 3
 });
 
-if ( $pca->pca() ) {
-  $pca->{r}->print("-->Raw:\n");
-  $pca->{m}->print("-->Rest:\n");
-  $pca->{p}->print("Matrix P: \n");
-  $pca->{t}->print("Matrix T: \n");
-}
+#if ( $pca->pca() ) {
+#  $pca->{r}->print("-->Raw:\n");
+#  $pca->{m}->print("-->Rest:\n");
+#  $pca->{p}->print("Matrix P: \n");
+#  $pca->{t}->print("Matrix T: \n");
+#}
 
 #my $result = {};
 #my ( $m, $n ) = $matrixT->size;
