@@ -222,7 +222,7 @@ $(function () {
                 var element = $(element);
                 if (element.is('similarity')) {
 
-                    var multiplier = diameter * 40 / 960;
+                    var multiplier = diameter * 20 / 960;
                     var X = ((parseFloat(element.find('x').text()) * multiplier) + diameter / 2);
                     var Y = ((parseFloat(element.find('y').text()) * multiplier) + diameter / 2);
 
@@ -238,6 +238,11 @@ $(function () {
 
             var labels = svg.append("g")
                 .attr("class", "grid-labels")
+                .attr("transform", function () {
+                    var x = 0;
+                    var y = 0;
+                    return "translate(-15, 15)";
+                })
                 .selectAll(".label")
                 .data(self.bubble.nodes(classes({"children": children}))
                     .filter(function (d) {
@@ -249,6 +254,7 @@ $(function () {
                 .enter()
                 .append("g")
                 .attr("class", "label");
+
 
             this._decorateLabels(labels);
             this._activateLabels(labels);
@@ -493,11 +499,11 @@ $(function () {
             });
 
             elements.attr("transform", function (d) {
-                var y = i++ * 15;
-                var x = self.diameter - (60 * j);
-                if (y > (self.diameter / 2.3)) {
-                    i = 1;
-                    j++;
+                var x = self.diameter - (50 * i);
+                var y = j++ * 15;
+                if (y > (self.diameter / 5)) {
+                    j = 1;
+                    i++;
                 }
                 return "translate(" + x + "," + y + ")";
             });
