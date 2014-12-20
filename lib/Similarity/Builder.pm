@@ -4,35 +4,37 @@ use base Exporter;
 use Text::Xslate;
 use lib "$FindBin::Bin/lib/";
 use Similarity::Pca;
-use Similarity::Compare;
+#use Similarity::Compare;
 
 sub new () {
   my ( $class, $args ) = @_;
+  
   my $self = {
-    ref1 => @{ $args->{ref1} },
-    ref2 => @{ $args->{ref2} },
+    ref1 => $args->{ref1},
+    ref2 => $args->{ref2},
     pcc  => $args->{pcc}
   };
+  
   return bless $self, $class;
 }
 
 # Compare proteins all to all
 # get a result as a multidimensional array
-sub all_to_all (\@ \@ $) {
+sub all_to_all () {
   my $self = shift;
 
   # Use script from Andrew Torda
-  my (@matrix) =
-    Similarity::Compare::all_to_all( $this->{ref1}, $this->{ref2} );
+  my (@matrix) = Similarity::Compare::all_to_all( 
+    $this->{ref1}, $this->{ref2} 
+  );
 
   # Apply PCA to given matrix
   # return all matrixes (raw, rest, P, T)
-  $pca = new Similarity::Pca(
-    {
+  $pca = new Similarity::Pca({
       matrix => \@matrix,
       pc     => $this->{pcc}
-    }
-  );
+    });
+    
   if ( $pca->pca() ) {
     $pca->{r}->print("-->Raw:\n");
     $pca->{m}->print("-->Rest:\n");
