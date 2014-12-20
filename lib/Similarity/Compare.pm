@@ -133,7 +133,7 @@ sub get_path (\@ $) {
 # folders or global var with a single one
 sub get_path_output ($) {
   my ($file) = @_;
-  if ( $DFLT_STRUCT_DIRS and ref($DFLT_STRUCT_DIRS) eq 'ARRAY' ) {
+  if ( defined($DFLT_STRUCT_DIRS) ) {
     return get_path( @DFLT_STRUCT_DIRS, $file );
   }
   if ( defined($OUTPUT_BIN_DIR) ) {
@@ -148,7 +148,7 @@ sub get_path_output ($) {
 # folders or global var with a single one
 sub get_path_vector ($) {
   my ($file) = @_;
-  if ( $DFLT_STRUCT_DIRS and ref($DFLT_STRUCT_DIRS) eq 'ARRAY' ) {
+  if ( defined($DFLT_STRUCT_DIRS) ) {
     return get_path( @PVEC_CA_DIRS, $file );
   }
   if ( defined($PVEC_STRCT_DIR) ) {
