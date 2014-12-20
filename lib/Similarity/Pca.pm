@@ -9,7 +9,7 @@ sub new () {
   my $self = {
     pc => $args->{pc},
     r  => new Math::Matrix( @{ $args->{matrix} } ),
-    m  => new Math::Matrix( @{ $args->{matrix} } ),
+    m  => undef,
     p  => undef,
     t  => undef
   };
@@ -18,6 +18,8 @@ sub new () {
 
 sub pca () {
   my $self = shift;
+  
+  $self->{m} = $self->{r}->clone;
   ( my $n, my $m ) = $self->{m}->size;
   my $threshold = 0.00001;
   foreach my $i ( 0 ... ( $self->{pc} - 1 ) ) {
