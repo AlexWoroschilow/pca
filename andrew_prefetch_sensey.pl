@@ -1351,11 +1351,11 @@ MINFRAGDME: {    #for the dme thresh
     # all-to-all similarity
   }    #MINFRAGDME:
   print "\n";
-  print XML"  </results>";
+  print XML"  </results>\n";
 
   # Fix from Alex to add
   # info about all-to-all similarity
-  $builder = new Similarity::Builder({
+  my $builder = new Similarity::Builder({
       ref1 => \@proteins,
       ref2 => \@proteins,
       pcc  => 3,
