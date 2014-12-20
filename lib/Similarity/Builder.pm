@@ -37,10 +37,10 @@ sub all_to_all () {
     });
     
   if ( $pca->pca() ) {
-    $pca->{r}->print("-->Raw:\n");
-    $pca->{m}->print("-->Rest:\n");
-    $pca->{p}->print("Matrix P: \n");
-    $pca->{t}->print("Matrix T: \n");
+#    $pca->{r}->print("-->Raw:\n");
+#    $pca->{m}->print("-->Rest:\n");
+#    $pca->{p}->print("Matrix P: \n");
+#    $pca->{t}->print("Matrix T: \n");
 
     # Build a data structure
     # to push into templater
@@ -61,8 +61,6 @@ sub all_to_all () {
 # hier can be a another decorator
 sub xml ($) {
   my ($collection) = @_;
-
-print("$FindBin::Bin/template");
 
   # Initialize templater and
   # define folder with template
