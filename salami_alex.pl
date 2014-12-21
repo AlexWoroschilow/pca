@@ -181,9 +181,10 @@ Wunsch. Obviously, both are possible, but just a bit ugly.
 
 =cut
 
-use FindBin;
-use lib "$FindBin::Bin/PCA";
-use Similarity::Builder; #ALEX
+use FindBin; # Patch from Alex
+use lib "$FindBin::Bin/pca/"; # Patch from Alex
+use Similarity::Builder; # Patch from Alex
+
 
 # use lib "/home/other/wurst/salamiServer/wurst/blib/lib";
 # use lib "/home/other/wurst/salamiServer/wurst/blib/arch";  
@@ -968,6 +969,7 @@ sub do_lib (\@ \@ $ $ $ $ $ $ $ $ $) {
     #my $todo = ( @$structlist > $N_BRIEF_LIST ? $N_BRIEF_LIST : @$structlist );
     my $todo = ( @$structlist > $maxItNum ? $maxItNum : @$structlist );
 
+
     print XML "
 <query>
 
@@ -1042,6 +1044,8 @@ sub do_lib (\@ \@ $ $ $ $ $ $ $ $ $) {
     # ====================================
     my $j = 0;
     my $shift = 0;
+    my @proteins = ();
+
 MINFRAGDME: { #for the dme thresh
     for (my $i = 0 ; $i < ($todo + $shift); $i++ ) {
         my $idx      = $indices[$i];
@@ -1094,6 +1098,7 @@ MINFRAGDME: { #for the dme thresh
            }
         my $pdbi = $pdbid;
         $pdbi =~ s/(.*?)(.)$/$1/;
+        push(@proteins, $pdbi); # changed by Alex
 
 # XXX RESULT XXX
         printf XML "   
@@ -1153,8 +1158,20 @@ MINFRAGDME: { #for the dme thresh
     }
 } #minFragDME:
     print "\n";
-    print XML"  </results> 
- </query>";
+    print XML"</results>\n" 
+ 
+  # Fix from Alex to add
+  # info about all-to-all similarity
+  my $builder = new Similarity::Builder({
+      ref1 => \@proteins,
+      ref2 => \@proteins,
+      pcc  => 3,
+    });
+    
+  print $builder->xml($builder->all_to_all());
+ 
+ 
+ print XML"</query>";
     close XML;
     close ALI;
     
