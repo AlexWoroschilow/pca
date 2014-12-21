@@ -1044,6 +1044,8 @@ sub do_lib (\@ \@ $ $ $ $ $ $ $ $ $) {
     # ====================================
     my $j = 0;
     my $shift = 0;
+    my @proteins = ();
+    
 MINFRAGDME: { #for the dme thresh
     for (my $i = 0 ; $i < ($todo + $shift); $i++ ) {
         my $idx      = $indices[$i];
@@ -1076,6 +1078,8 @@ MINFRAGDME: { #for the dme thresh
             $sid = 0.0;
         }
           my $pdbid=$$structlist[$idx];
+          push(@proteins, $pdbid);
+
         print STDERR "START START START   \n";
         my $coord2   =  coord_read(
 #             get_path( @$struct_dirs, $$structlist[$idx] . $BIN_SUFFIX ) );
