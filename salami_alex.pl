@@ -191,7 +191,7 @@ use lib $LIB_ARCH; #initialize in local Salamisrvini.pm;
 use Wurst;
 
 use FindBin;
-use lib "$FindBin::Bin/PCA";
+use lib "$FindBin::Bin/pca";
 use Similarity::Builder; #ALEX
 
 
