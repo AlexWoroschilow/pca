@@ -1159,8 +1159,19 @@ MINFRAGDME: { #for the dme thresh
     }
 } #minFragDME:
     print "\n";
-    print XML"  </results> 
- </query>";
+    print XML"</results>\n";
+    
+    # Fix from Alex to add
+    # info about all-to-all similarity
+    my $builder = new Similarity::Builder({
+      ref1 => \@proteins,
+      ref2 => \@proteins,
+      pcc  => 3,
+    });
+    
+    print $builder->xml($builder->all_to_all());
+     
+    print XML"</query>";
     close XML;
     close ALI;
     
