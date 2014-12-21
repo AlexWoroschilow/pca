@@ -407,7 +407,16 @@ sub get_prot_list ($) {
 # ----------------------- get_path  ---------------------------------
 # We have a filename and a list of directories where it could
 # be. Return the path if we can find it, otherwise return undef.
-
+sub get_path (\@ $) {
+  my ( $dirs, $fname ) = @_;
+  foreach my $d (@$dirs) {
+    my $p = "$d/$fname";
+    if ( -f $p ) {
+      return $p;
+    }
+  }
+  return undef;
+}
 
 # ----------------------- check_dirs --------------------------------
 # Given an array of directory names, check if each one
