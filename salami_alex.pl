@@ -181,10 +181,6 @@ Wunsch. Obviously, both are possible, but just a bit ugly.
 
 =cut
 
-use FindBin; # Patch from Alex
-use lib "$FindBin::Bin/pca/"; # Patch from Alex
-use Similarity::Builder; # Patch from Alex
-
 
 # use lib "/home/other/wurst/salamiServer/wurst/blib/lib";
 # use lib "/home/other/wurst/salamiServer/wurst/blib/arch";  
@@ -193,6 +189,11 @@ use Salamisrvini;
 use lib $LIB_LIB;  #initialize in local Salamisrvini.pm;
 use lib $LIB_ARCH; #initialize in local Salamisrvini.pm;
 use Wurst;
+
+use FindBin;
+use lib "$FindBin::Bin/PCA";
+use Similarity::Builder; #ALEX
+
 
 use vars qw ($MATRIX_DIR $PARAM_DIR
   $RS_PARAM_FILE $FX9_PARAM_FILE );
@@ -409,14 +410,14 @@ sub get_prot_list ($) {
 # We have a filename and a list of directories where it could
 # be. Return the path if we can find it, otherwise return undef.
 sub get_path (\@ $) {
-    my ( $dirs, $fname ) = @_;
-    foreach my $d (@$dirs) {
-        my $p = "$d/$fname";
-        if ( -f $p ) {
-            return $p;
-        }
+  my ( $dirs, $fname ) = @_;
+  foreach my $d (@$dirs) {
+    my $p = "$d/$fname";
+    if ( -f $p ) {
+      return $p;
     }
-    return undef;
+  }
+  return undef;
 }
 
 # ----------------------- check_dirs --------------------------------
@@ -969,7 +970,6 @@ sub do_lib (\@ \@ $ $ $ $ $ $ $ $ $) {
     #my $todo = ( @$structlist > $N_BRIEF_LIST ? $N_BRIEF_LIST : @$structlist );
     my $todo = ( @$structlist > $maxItNum ? $maxItNum : @$structlist );
 
-
     print XML "
 <query>
 
@@ -1044,8 +1044,6 @@ sub do_lib (\@ \@ $ $ $ $ $ $ $ $ $) {
     # ====================================
     my $j = 0;
     my $shift = 0;
-    my @proteins = ();
-
 MINFRAGDME: { #for the dme thresh
     for (my $i = 0 ; $i < ($todo + $shift); $i++ ) {
         my $idx      = $indices[$i];
@@ -1098,7 +1096,6 @@ MINFRAGDME: { #for the dme thresh
            }
         my $pdbi = $pdbid;
         $pdbi =~ s/(.*?)(.)$/$1/;
-        push(@proteins, $pdbi); # changed by Alex
 
 # XXX RESULT XXX
         printf XML "   
@@ -1158,20 +1155,8 @@ MINFRAGDME: { #for the dme thresh
     }
 } #minFragDME:
     print "\n";
-    print XML"</results>\n" 
- 
-  # Fix from Alex to add
-  # info about all-to-all similarity
-  my $builder = new Similarity::Builder({
-      ref1 => \@proteins,
-      ref2 => \@proteins,
-      pcc  => 3,
-    });
-    
-  print $builder->xml($builder->all_to_all());
- 
- 
- print XML"</query>";
+    print XML"  </results> 
+ </query>";
     close XML;
     close ALI;
     
