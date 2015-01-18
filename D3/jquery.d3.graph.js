@@ -5,17 +5,17 @@ $(function () {
     function classes(root) {
         var classes = [];
 
-        function recurse(name, node) {
+        function recursion(name, node) {
             if (node.children) {
                 node.children.forEach(function (child) {
-                    recurse(node.name, child);
+                    recursion(node.name, child);
                 });
             }
             else classes.push(node);
         }
 
-        recurse(null, root);
-        return {children: classes};
+        recursion(null, root);
+        return { children: classes };
     }
 
     /**
@@ -89,6 +89,9 @@ $(function () {
         init: function (selector, diameter) {
 
             this.diameter = diameter;
+            this.widthLabels = 169;
+
+
             this.format = d3.format(",d");
             this.color = d3.scale.category20c();
 
@@ -112,11 +115,10 @@ $(function () {
             var grid = this.svg.append("g")
                 .attr("class", "grid");
 
-
-            var x11 = this.diameter / 2;
+            var x11 = (this.diameter - this.widthLabels) / 2;
             var y11 = 0;
 
-            var x21 = this.diameter / 2
+            var x21 = (this.diameter - this.widthLabels) / 2
             var y21 = this.diameter;
 
             var lineY = grid.append("line");
@@ -126,24 +128,24 @@ $(function () {
             lineY.style("stroke-width", "2");
 
 
-            var labelY = grid.append("g");
+//            var labelY = grid.append("g");
+//
+//            labelY.attr("class", "node")
+//                .attr("transform", function (d) {
+//                    return "translate(" + (x21 + 20) + ",20)";
+//                });
 
-            labelY.attr("class", "node")
-                .attr("transform", function (d) {
-                    return "translate(" + (x21 + 20) + ",20)";
-                });
-
-            labelY.append("text")
-                .style("text-anchor", "middle")
-                .style("font", "16px sans-serif")
-                .text(function (d) {
-                    return "PC2";
-                });
+//            labelY.append("text")
+//                .style("text-anchor", "middle")
+//                .style("font", "16px sans-serif")
+//                .text(function (d) {
+//                    return "PC2";
+//                });
 
             var x12 = 0;
             var y12 = this.diameter / 2;
 
-            var x22 = this.diameter;
+            var x22 = this.diameter - this.widthLabels;
             var y22 = this.diameter / 2;
 
             var lineX1 = grid.append("line");
@@ -153,18 +155,18 @@ $(function () {
             lineX1.style("stroke-width", "2");
 
 
-            var labelX = grid.append("g");
-
-            labelX.attr("class", "node")
-                .attr("transform", function (d) {
-                    return "translate(" + (x22 - 20) + ", " + (x21 - 10) + ")";
-                });
-            labelX.append("text")
-                .style("text-anchor", "middle")
-                .style("font", "16px sans-serif")
-                .text(function (d) {
-                    return "PC1";
-                });
+//            var labelX = grid.append("g");
+//
+//            labelX.attr("class", "node")
+//                .attr("transform", function (d) {
+//                    return "translate(" + (x22 - 20) + ", " + (x21 - 10) + ")";
+//                });
+//            labelX.append("text")
+//                .style("text-anchor", "middle")
+//                .style("font", "16px sans-serif")
+//                .text(function (d) {
+//                    return "PC1";
+//                });
 
 
             var lines = grid.append("g")
@@ -176,6 +178,7 @@ $(function () {
                 var y11 = 0;
                 var x21 = i;
                 var y21 = this.diameter;
+
 
                 var lineY = lines.append("line");
                 lineY.attr("x1", x11).attr("y1", y11);
@@ -218,19 +221,40 @@ $(function () {
             var codegenerator = new String();
             var response = $(response);
 
+            var maxX = 0;
+            var minX = 0;
+            var maxY = 0;
+            var minY = 0;
+
+            response.find('similarity').each(function (index, element) {
+                var x = parseFloat($(element).find('x').text());
+                maxX = (x > maxX) ? x : maxX;
+                minX = (x < minX) ? x : minX;
+
+                var y = parseFloat($(element).find('y').text());
+                maxY = (y > maxY) ? y : maxY;
+                minY = (y < minY) ? y : minY;
+            });
+
+            var rangeX = maxX - minX;
+            var rangeY = maxY - minY;
+
+            var scaleX = (this.diameter - this.widthLabels) / rangeX;
+            var scaleY = diameter / rangeY;
+
             response.find('similarity').each(function (index, element) {
                 var element = $(element);
                 if (element.is('similarity')) {
 
-                    var multiplier = diameter * 20 / 960;
-                    var X = ((parseFloat(element.find('x').text()) * multiplier) + diameter / 2);
-                    var Y = ((parseFloat(element.find('y').text()) * multiplier) + diameter / 2);
+                    var x = parseFloat(element.find('x').text());
+                    var y = parseFloat(element.find('y').text());
+                    var pdbid = element.find('pdbid').text();
 
                     children.push({
                         "hash": codegenerator.random(10),
-                        "name": element.find('pdbid').text(),
-                        "X": X,
-                        "Y": Y
+                        "name": pdbid,
+                        "X": ((x - minX) * scaleX),
+                        "Y": ((y - minY) * scaleY)
                     });
 
                 }
@@ -238,11 +262,9 @@ $(function () {
 
             var labels = svg.append("g")
                 .attr("class", "grid-labels")
-                .attr("transform", function () {
-                    var x = 0;
-                    var y = 0;
-                    return "translate(-15, 15)";
-                })
+//                .attr("transform", function () {
+//                    return "translate(-20, 0)";
+//                })
                 .selectAll(".label")
                 .data(self.bubble.nodes(classes({"children": children}))
                     .filter(function (d) {
@@ -490,22 +512,26 @@ $(function () {
          */
         _decorateLabels: function (elements) {
 
-            var i = 1;
-            var j = 1;
             var self = this;
 
             elements.attr("id", function (d) {
                 return "label_" + d.hash;
             });
 
+            var i = 0;
+            var j = 0;
             elements.attr("transform", function (d) {
-                var x = self.diameter - (50 * i);
-                var y = j++ * 15;
-                if (y > (self.diameter / 5)) {
-                    j = 1;
+
+                var stepX = (50 * i);
+                var stepY = (15 * j++);
+                if (stepY > 480) {
+                    j = 0;
                     i++;
                 }
-                return "translate(" + x + "," + y + ")";
+
+                var x = (self.diameter - self.widthLabels + 20) + stepX;
+
+                return "translate(" + x + "," + stepY + ")";
             });
 
             var titles = elements.append("title");
