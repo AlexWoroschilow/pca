@@ -12,7 +12,6 @@
  </params>
 
  <results>
-
   <result id='3fpvA'>
     <pdbid>3fpvA</pdbid>
     <z_scr>    60.7</z_scr>
@@ -23,7 +22,6 @@
     <rmsd>  0.00</rmsd>
     <q_scr>0.1250</q_scr>
   </result>
-
   <result id='2a2lD'>
     <pdbid>2a2lD</pdbid>
     <z_scr>    38.7</z_scr>
@@ -34,7 +32,6 @@
     <rmsd>  2.63</rmsd>
     <q_scr>0.1206</q_scr>
   </result>
-
   <result id='1th5A'>
     <pdbid>1th5A</pdbid>
     <z_scr>    9.88</z_scr>
@@ -1112,7 +1109,8 @@
     <rmsd>  5.14</rmsd>
     <q_scr>0.0434</q_scr>
   </result>
-  </results><similarities>
+  </results>
+<similarities>
 	<similarity id="1afoB">
 		<pdbid>1afoB</pdbid>
 		<x>2.65550801184295</x>

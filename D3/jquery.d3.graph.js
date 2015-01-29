@@ -15,7 +15,7 @@ $(function () {
         }
 
         recursion(null, root);
-        return { children: classes };
+        return {children: classes};
     }
 
     /**
@@ -351,20 +351,20 @@ $(function () {
 
             (function (self) {
 
-                elements.on("click", function (node) {
+                elements.on("click", $.proxy(function (node) {
                     var element = d3.select(this);
                     self.onNodeClick(self, element, node);
-                });
+                }));
 
-                elements.on("mouseover", function (node) {
+                elements.on("mouseover", $.proxy(function (node) {
                     var element = d3.select(this);
                     self.onNodeMouseOver(self, element, node);
-                });
+                }));
 
-                elements.on("mouseout", function (node) {
+                elements.on("mouseout", $.proxy(function (node) {
                     var element = d3.select(this);
                     self.onNodeMouseOut(self, element, node);
-                });
+                }));
 
             })(this);
         },
@@ -466,6 +466,12 @@ $(function () {
             if (typeof (node.node) == "function") {
                 node.node().dispatchEvent(event);
             }
+
+            var container = $(document);
+            container.trigger({
+                type: "mouseover-node",
+                node: d
+            });
         },
 
         /**
@@ -502,6 +508,12 @@ $(function () {
             if (typeof (node.node) == "function") {
                 node.node().dispatchEvent(event);
             }
+
+            var container = $(document);
+            container.trigger({
+                type: "mouseout-node",
+                node: d
+            });
         },
 
         /**
@@ -565,20 +577,20 @@ $(function () {
 
             (function (self) {
 
-                elements.on("click", function (node) {
+                elements.on("click", $.proxy(function (node) {
                     var element = d3.select(this);
                     self.onLabelClick(self, element, node);
-                });
+                }));
 
-                elements.on("mouseover", function (node) {
+                elements.on("mouseover", $.proxy(function (node) {
                     var element = d3.select(this);
                     self.onLabelMouseOver(self, element, node);
-                });
+                }));
 
-                elements.on("mouseout", function (node) {
+                elements.on("mouseout", $.proxy(function (node) {
                     var element = d3.select(this);
                     self.onLabelMouseOut(self, element, node);
-                });
+                }));
 
             })(this);
 
@@ -623,6 +635,12 @@ $(function () {
             if (typeof (node.node) == "function") {
                 node.node().dispatchEvent(event);
             }
+
+            var container = $(document);
+            container.trigger({
+                type: "mouseover-label",
+                node: d
+            });
         },
 
         /**
@@ -648,6 +666,13 @@ $(function () {
             if (typeof (node.node) == "function") {
                 node.node().dispatchEvent(event);
             }
+
+            var container = $(document);
+            container.trigger({
+                type: "mouseout-label",
+                node: d
+            });
+
         }
 
     });

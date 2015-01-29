@@ -20,15 +20,40 @@
         var container = $(document);
 
         container.find("#graph")
-                .diagram("results.xml", 1010);
+                .diagram("results.xml", 700);
 
         container.on("click-node", function (event) {
             console.info(event);
         });
 
+        container.on("mouseout-node", function (event) {
+            console.info(event);
+        });
+
+        container.on("mouseover-node", function (event) {
+            console.info(event);
+        });
+
+
         container.on("click-label", function (event) {
             console.info(event);
         });
+
+        container.on("mouseout-label", function (event) {
+            console.info(event);
+        });
+
+        container.on("mouseover-label", function (event) {
+            console.info(event);
+        });
+
+
+//        var event = document.createEvent('MouseEvents');
+//        event.initMouseEvent("mouseout", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+//        var node = $('g.node:contains(2dyjA)').get(0);
+//
+//        node.dispatchEvent(event);
+
 
     });
 </script>
